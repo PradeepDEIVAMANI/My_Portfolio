@@ -22,7 +22,7 @@ export default function Education() {
               <FontAwesomeIcon icon={faGraduationCap} className="mr-3  text-orange-600" />Masters in Software Engineering and Digital transformation
             </h2>
             <p className="text-gray-300 pb-4">ESIGELEC-École supérieure d'ingénieurs en génie électrique</p>
-            <p className="text-gray-300">Graduation Year: 2022-Present</p>
+            <p className="text-gray-300">Graduation Year: 2022-2024</p>
           </div>
 
           {/* Education Item 2 */}

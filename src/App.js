@@ -7,6 +7,7 @@ import Skills from "./Components/Skills";
 import Testimonials from "./Components/Testimonial";
 import Footer from"./Components/Footer";
 import Education from"./Components/Education";
+import Experience from "./Components/Experience";
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
      
      <Navbar />
       <About />
+      <Experience/>
       <Education/>
       <Projects />
       <Skills />

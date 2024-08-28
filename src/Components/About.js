@@ -11,7 +11,7 @@ export default function About() {
               <br className="hidden lg:inline-block" />I love to build amazing <span className="text-orange-700 font-semibold"> Full stack</span> Web application.
             </h1>
             <p className="mb-8 leading-relaxed text-gray-200  p-4 rounded text-justify">
-                Full stack developers are highly valuable in the tech industry, as they possess a wide range of skills and can work on both the front-end and back-end of web applications. If you have any specific questions, need advice, or want to discuss anything related to full stack development or your career, feel free to ask. I'm here to help!
+            Full stack Java developers with DevOps expertise are extremely valuable in the tech industry due to their ability to manage both front-end and back-end development while also optimizing deployment and infrastructure. If you have specific questions, need advice, or want to explore topics related to full stack Java development or DevOps, feel free to ask. I'm here to assist!
             </p>
             <div className="flex justify-center">
               <a

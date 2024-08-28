@@ -37,7 +37,7 @@ export const projects = [
     {
       title:"Frontend Development using React",
       description:"Completed courses covering the fundamentals of HTML, CSS, JavaScript, and React. Acquired a comprehensive understanding of web development technologies, including key concepts like components, state, props, and JSX in React, and their seamless integration to create dynamic and interactive user interfaces",
-      image: "/c1.png",
+      image: "/coursera.png",
       name: "Coursera",
       link: "https://coursera.org/share/1ba63a7ee44f3ea39cbeffd93f558775",
     },
@@ -45,22 +45,40 @@ export const projects = [
         title:"Data Structures & Backend with Java",
       description:
         "i have achieved mastery in Java programming, specializing in backend development, and have a strong grasp of data structures I have effectively applied this expertise in real-world projects using Spring Boot, demonstrating my ability to deliver robust solutions in the field of software development.",
-        image: "/c1.png",
+        image: "/coursera.png",
       name: "Coursera",
       link:"https://coursera.org/share/1ba63a7ee44f3ea39cbeffd93f558775",
     },
+    {
+      title:"IBM Professional Certificate in Applied DevOps",
+    description:
+      "Essential DevOps concepts: software engineering practices, cloud native microservices, automated continuous deployments, and building resilient code.",
+      image: "/coursera.png",
+    name: "Coursera",
+    link:"https://www.coursera.org/account/accomplishments/verify/X5LQHYZZHVMC",
+  },
+  {
+    title:"Introduction to Agile Development and Scrum",
+  description:
+    "Adopt the 5 practices of Agile, a subset of DevOps: small batches, minimum viable product, pair programming, behavior- and test-driven development.",
+    image: "/coursera.png",
+  name: "Coursera",
+  link:"https://www.coursera.org/account/accomplishments/verify/XSUWGCK76NCQ",
+},
   ];
   
   export const skills = [
-    "JavaScript",
-    "React",
-    "Java",
+    "JAVA",
     "Spring Boot",
-    "MySql",
-    "MangoDB",
-    "Rest API",
-    "C#",
-    "ASP.Net",
-    "MVC"
+    "Spring Batch",
+    "Test Driven Development(TDD)",
+    "Behavior-driven development (BDD)",
+    "Gherkins",
+    "CI/CD Pipeline",
+    "Jenkins",
+    "Splunk",
+    "Ansible",
+    "Argo CD",
+    "Kubernetes"
   ];
   
