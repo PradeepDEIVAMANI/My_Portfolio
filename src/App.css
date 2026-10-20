@@ -125,6 +125,11 @@ a { color: inherit; text-decoration: none; }
 .publication-icon { width: 32px; height: 32px; flex: 0 0 32px; display: grid; place-items: center; border: 1px solid rgba(131,240,196,.25); color: var(--accent); border-radius: 5px; }
 .publication h3 { margin: 9px 0 4px; font-size: 14px; }
 .publication p { min-height: 0; margin: 0; }
+.publication-content { min-width: 0; }
+.publication-content p + p { margin-top: 7px; }
+.publication-content p strong { color: var(--text); font-weight: 600; }
+.publication-link { display: inline-flex; gap: 8px; align-items: center; margin-top: 13px; color: var(--accent); font: 10px 'DM Mono',monospace; }
+.publication-link:hover { color: var(--text); }
 .cert-section { padding-top: 98px; }
 .cert-grid { border-top: 1px solid var(--line); }
 .cert-card { display: grid; grid-template-columns: 65px 1fr 30px; align-items: center; gap: 20px; padding: 21px 10px; border-bottom: 1px solid var(--line); }

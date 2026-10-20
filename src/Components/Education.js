@@ -10,6 +10,15 @@ export default function Education() {
     <div className="section-heading"><div className="eyebrow">05 / EDUCATION</div><h2>Built on a strong <span className="accent-text">foundation.</span></h2></div>
     <div className="education-grid">{education.map((item) => <article className="education-card" key={item.degree}><div className="role-date">{item.date}</div><h3>{item.degree}</h3><p className="role-company">{item.school}</p><p className="education-place">{item.place}</p><p className="education-note">{item.note}</p></article>)}</div>
     <div className="languages"><span className="eyebrow">LANGUAGES</span><span>English <i>Fluent</i></span><span>French <i>B1</i></span><span>Tamil <i>Native</i></span></div>
-    <div className="publication"><span className="publication-icon">✳</span><div><span className="project-type">RESEARCH · MAR 2023</span><h3>IEEE Software Engineering and Artificial Intelligence Conference</h3><p>Published research related to computer vision, semantic mobile services and data extraction from textual images.</p></div></div>
+    <article className="publication">
+      <span className="publication-icon" aria-hidden="true">✳</span>
+      <div className="publication-content">
+        <span className="project-type">IEEE CONFERENCE PAPER · 2024</span>
+        <h3>Semantic User-Centered Mobile Services and Data Collection from Textual Images</h3>
+        <p><strong>Co-author:</strong> Pradeep Deivamani</p>
+        <p>Published in the 2024 IEEE 4th International Conference on Software Engineering and Artificial Intelligence (SEAI), Xiamen, China. Research on semantic mobile services and extracting information from textual images.</p>
+        <a className="publication-link" href="https://ieeexplore.ieee.org/document/10674372" target="_blank" rel="noreferrer">View paper on IEEE Xplore <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
   </section>;
 }
