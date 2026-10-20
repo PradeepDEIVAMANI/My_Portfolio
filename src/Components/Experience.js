@@ -10,6 +10,8 @@ const roles = [
       "Implemented PGP file decryption with Bouncy Castle and Vault-sourced certificates, business transformations, database persistence, and cloud-bucket archival.",
       "Developed COS document APIs and case-document workflows spanning attachments, metadata, REST operations, generated PDFs, MQ events, and archival.",
       "Created database-to-JSON and encrypted CSV exports through COS and CFT; deployed services and CronJobs to Kubernetes and supported production incidents across DEV, INT, and QUA.",
+      "Worked in Scrum with daily stand-ups, sprint reviews, progress and integration meetings, weekly refinement, and specification workshops; used pair and mob programming to solve problems collaboratively.",
+      "Partnered with business analysts and process experts to investigate bugs, clarify requirements, and deliver business-process improvements and corrections; tracked work and incidents in Jira and ServiceNow and analyzed logs in Kibana.",
     ],
   },
   {

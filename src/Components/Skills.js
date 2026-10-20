@@ -5,8 +5,9 @@ const groups = [
   ["02", "Batch & data exchange", ["Spring Batch", "IBM MQ", "IBM COS", "Amazon S3 SDK", "CFT", "JSON", "CSV", "PostgreSQL", "MySQL", "H2", "Flyway"]],
   ["03", "Cloud & security", ["Docker", "Kubernetes", "CronJobs", "Argo CD", "GitLab CI/CD", "Jenkins", "SonarQube", "OpenPGP", "Bouncy Castle", "HashiCorp Vault", "Terraform", "Ansible"]],
   ["04", "Testing & quality", ["JUnit", "Mockito", "TDD", "BDD", "Performance testing", "Code review"]],
-  ["05", "Production & observability", ["Production support", "Incident response", "Kibana", "Elasticsearch", "IBM Log Analysis"]],
-  ["06", "Frontend", ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"]],
+  ["05", "Production & observability", ["Production support", "Incident response", "ServiceNow", "Kibana", "Elasticsearch", "IBM Log Analysis"]],
+  ["06", "Teamwork & delivery", ["Agile", "Scrum", "Jira", "Daily Scrum", "Sprint reviews", "Backlog refinement", "Specification workshops", "Pair programming", "Mob programming", "Business analyst collaboration"]],
+  ["07", "Frontend", ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"]],
 ];
 
 export default function Skills() {
