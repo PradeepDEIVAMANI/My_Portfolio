@@ -1,42 +1,15 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+
+const education = [
+  { degree: "Master’s in Software Engineering and Digital Transformation", school: "ESIGELEC", place: "Saint-Étienne-du-Rouvray, France", date: "Sep 2022 — Sep 2024", note: "Specialisation in Java development, DevOps and cloud computing." },
+  { degree: "Bachelor of Technology", school: "Sri Manakula Vinayagar Engineering College", place: "Puducherry, India", date: "Aug 2017 — Aug 2021", note: "Graduated with distinction." },
+];
 
 export default function Education() {
-  return (
-    <section id="education" className="bg-gray-900 text-gray-400 py-10">
-         <div className="container px-5 py-10 mx-auto text-center lg:px-40">
-      <div className="container mx-auto">
-      <FontAwesomeIcon icon={faGraduationCap} className="text-orange-600 text-3xl " />
-      </div>
-        <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-          
-          Education
-          
-        </h1>
-        <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-350 pb-10"> My bachelor's program provided me with a strong foundation in technology and engineering, with a focus on computer science and software development. It prepared me for a career in the dynamic field of technology.</p>
-        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
-          {/* Education Item 1 */}
-          <div className="bg-gray-800 p-20 rounded-md w-full max-h-full md:w-1/2">
-            <h2 className="text-xl font-semibold text-white">
-              <FontAwesomeIcon icon={faGraduationCap} className="mr-3  text-orange-600" />Masters in Software Engineering and Digital transformation
-            </h2>
-            <p className="text-gray-300 pb-4">ESIGELEC-École supérieure d'ingénieurs en génie électrique</p>
-            <p className="text-gray-300">Graduation Year: 2022-2024</p>
-          </div>
-
-          {/* Education Item 2 */}
-          <div className="bg-gray-800 p-20 h-full rounded-md w-full max-h-full md:w-1/2">
-            <h2 className="text-xl font-semibold text-white">
-              <FontAwesomeIcon icon={faGraduationCap} className="mr-3 text-orange-600" />Becholers of Technologies in Mechanical engineering
-            </h2>
-            <p className="text-gray-300 pb-4">SMVEC-Sri Manakula Vinayagar Engineering College</p>
-            <p className="text-gray-300">Graduation Year: 2017-2021</p>
-          </div>
-
-          {/* Add more education items as needed */}
-        </div>
-      </div>
-    </section>
-  );
+  return <section id="education" className="section-wrap section-block education-section">
+    <div className="section-heading"><div className="eyebrow">05 / EDUCATION</div><h2>Built on a strong <span className="accent-text">foundation.</span></h2></div>
+    <div className="education-grid">{education.map((item) => <article className="education-card" key={item.degree}><div className="role-date">{item.date}</div><h3>{item.degree}</h3><p className="role-company">{item.school}</p><p className="education-place">{item.place}</p><p className="education-note">{item.note}</p></article>)}</div>
+    <div className="languages"><span className="eyebrow">LANGUAGES</span><span>English <i>Fluent</i></span><span>French <i>B1</i></span><span>Tamil <i>Native</i></span></div>
+    <div className="publication"><span className="publication-icon">✳</span><div><span className="project-type">RESEARCH · MAR 2023</span><h3>IEEE Software Engineering and Artificial Intelligence Conference</h3><p>Published research related to computer vision, semantic mobile services and data extraction from textual images.</p></div></div>
+  </section>;
 }

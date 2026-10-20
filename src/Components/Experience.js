@@ -1,32 +1,39 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserTie } from '@fortawesome/free-solid-svg-icons'
+
+const roles = [
+  {
+    company: "BNP Paribas · BCEF IT · Workflow", title: "Software Engineer Consultant", place: "Paris, France", date: "Dec 2024 — Present",
+    metrics: [["2", "MQ orchestration services"], ["12", "batch applications"], ["~200k", "records processed daily"]],
+    points: [
+      "Developed two resilient orchestration services that consume messages from multiple MQ queues, apply business rules and route TAR archives to downstream teams and applications.",
+      "Built and maintained 12 Spring Batch applications processing around 200,000 records per day, including secure CSV imports from IBM Cloud Object Storage (COS).",
+      "Implemented PGP file decryption with Bouncy Castle and Vault-sourced certificates, business transformations, database persistence, and cloud-bucket archival.",
+      "Developed COS document APIs and case-document workflows spanning attachments, metadata, REST operations, generated PDFs, MQ events, and archival.",
+      "Created database-to-JSON and encrypted CSV exports through COS and CFT; deployed services and CronJobs to Kubernetes and supported production incidents across DEV, INT, and QUA.",
+    ],
+  },
+  {
+    company: "BNP Paribas · BCEF IT · Workflow", title: "Software Engineering Intern", place: "Paris, France", date: "Mar 2024 — Sep 2024",
+    points: ["Developed Java, Spring Boot and Spring Batch applications for banking workflows.", "Migrated JDBC queries to Spring Data JPA and Hibernate.", "Created automated tests using TDD, BDD, JUnit and Mockito; worked with PostgreSQL, H2, Flyway, Docker and Kubernetes."],
+  },
+  {
+    company: "Tata Consultancy Services", title: "Technical Engineer", place: "India", date: "Oct 2021 — Jul 2022",
+    points: ["Developed and tested Java applications using TDD, JUnit and Mockito.", "Improved code quality, maintainability and application reliability."],
+  },
+];
 
 export default function Experience() {
   return (
-    <section id="experience" className="bg-gray-900 text-gray-400 py-10">
-         <div className="container px-5 py-10 mx-auto text-center lg:px-100">
-      <div className="container mx-auto">
-      <FontAwesomeIcon icon={faUserTie} className="text-orange-600 text-3xl " />
-      </div>
-        <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-          
-          Professional Experience
-          
-        </h1>
-        <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-350 pb-10"> Seasoned Software Engineer with expertise in Agile methodologies tailored for BCEF workflows. Adept in Java Spring Boot microservices, Spring Batch, and test-driven development (TDD) and behavior-driven development (BDD). Proficient, CI/CD pipelines (Jenkins, GitLab, sonarQube, ArgoCD), Kubernetes, Docker, and Infrastructure as Code (IaC) using Terraform and Ansible. Experienced with databases like SQl and PostgreSQL, as well as messaging systems such as Kafka, IBM MQ, and ActiveMQ. Demonstrates ultimate proficiency in DevOps practices.</p>
-        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
-          {/* Education Item 1 */}
-          <div className="bg-gray-800 p-20 rounded-md w-full max-h-full md:w-1/2">
-            <h2 className="text-xl font-semibold text-white">
-              <FontAwesomeIcon icon={faUserTie} className="mr-3  text-orange-600" />Software Engineer - Java Developer
-            </h2>
-            <p className="text-gray-300 pb-4">BNP Paribas-BCEF IT</p>
-            <p className="text-gray-300"> Year: 2024-Present</p>
+    <section id="experience" className="section-wrap section-block">
+      <div className="section-heading"><div className="eyebrow">01 / EXPERIENCE</div><h2>Engineering in <span className="accent-text">production.</span></h2><p>Building and supporting software where reliability, security and thoughtful engineering matter.</p></div>
+      <div className="timeline">
+        {roles.map((role) => <article className="role-card" key={role.title + role.date}>
+          <div className="role-date">{role.date}</div>
+          <div className="role-main"><div className="role-top"><div><h3>{role.title}</h3><p className="role-company">{role.company} <span>· {role.place}</span></p></div><span className="role-mark" aria-hidden="true">↗</span></div>
+            {role.metrics && <div className="role-metrics">{role.metrics.map(([value, label]) => <div className="role-metric" key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>}
+            <ul>{role.points.map((point) => <li key={point}>{point}</li>)}</ul>
           </div>
-
-          {/* Add more education items as needed */}
-        </div>
+        </article>)}
       </div>
     </section>
   );

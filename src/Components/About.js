@@ -1,45 +1,34 @@
 import React from "react";
 
-
 export default function About() {
-    return (
-      <section id="about">
-        <div className="container mx-auto flex px-24 py-20 md:flex-row flex-col items-center">
-          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-              Hi, I'm Pradeep DEIVAMANI.
-              <br className="hidden lg:inline-block" />I love to build amazing <span className="text-orange-700 font-semibold"> Full stack</span> Web application.
-            </h1>
-            <p className="mb-8 leading-relaxed text-gray-200  p-4 rounded text-justify">
-            Full stack Java developers with DevOps expertise are extremely valuable in the tech industry due to their ability to manage both front-end and back-end development while also optimizing deployment and infrastructure. If you have specific questions, need advice, or want to explore topics related to full stack Java development or DevOps, feel free to ask. I'm here to assist!
-            </p>
-            <div className="flex justify-center">
-              <a
-                href="#contact"
-                className="inline-flex text-white  border border-orange-700 py-2 px-6 focus:outline-none hover:bg-orange-700 rounded text-lg">
-                Work With Me
-              </a>
-              <a
-                href="#projects"
-                className="ml-4 inline-flex text-white bg-orange-600 border-0 py-2 px-6 focus:outline-none hover:bg-orange-700 rounded text-lg">
-                See My Projects
-              </a>
-            </div>
-          </div>
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-            <img
-              className="object-cover object-center rounded-lg border-4 border-gradient-10 shadow-lg transform scale-100 hover:scale-105 opacity-100 hover:opacity-75 transition duration-300 ease-in-out"
-              alt="hero"
-              src="./edited.jpg"
-            />
-          </div>
+  const signalItems = ["JAVA + SPRING", "MQ ORCHESTRATION", "~200K RECORDS / DAY", "SECURE COS WORKFLOWS", "KUBERNETES DELIVERY"];
+
+  return (
+    <>
+    <section id="about" className="hero section-wrap">
+      <div className="hero-copy">
+        <div className="eyebrow"><span className="status-dot" /> SOFTWARE ENGINEER · PARIS, FRANCE</div>
+        <h1>I build reliable<br />software for the<br /><span className="accent-text">real world.</span></h1>
+        <p className="hero-lead">I’m Pradeep, a Java engineer building secure enterprise banking systems—from MQ orchestration and high-volume batch processing to cloud file exchange and Kubernetes operations.</p>
+        <div className="hero-actions">
+          <a className="button button-primary" href="#experience">Explore my work <span aria-hidden="true">↓</span></a>
+          <a className="button button-quiet" href="/Pradeep-Deivamani-CV.pdf" target="_blank" rel="noreferrer">View résumé <span aria-hidden="true">↗</span></a>
         </div>
-      </section>
-    );
-  }
-  
-  
-  
-  
-  
-  
+        <div className="hero-meta"><span>JAVA DEVELOPER · DEVOPS · CLOUD ARCHITECTURE</span><span>AVAILABLE FOR A CONVERSATION</span></div>
+      </div>
+      <div className="hero-visual">
+        <div className="portrait-frame"><img src="/pradeep-headshot-lenses.jpeg" alt="Pradeep Deivamani in a suit" /></div>
+        <div className="orbit orbit-one" /><div className="orbit orbit-two" />
+        <div className="code-card"><span className="code-dot" /><span>shipping reliable systems</span><strong>build();</strong></div>
+        <div className="hero-index">01 <span>/ 08</span></div>
+      </div>
+    </section>
+    <div className="signal-strip" role="region" aria-label="Core engineering experience">
+      <div className="signal-track">
+        <div className="signal-set">{signalItems.map((item) => <span key={item}>{item}</span>)}</div>
+        <div className="signal-set" aria-hidden="true">{signalItems.map((item) => <span key={item}>{item}</span>)}</div>
+      </div>
+    </div>
+    </>
+  );
+}

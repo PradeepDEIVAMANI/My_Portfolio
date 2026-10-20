@@ -31,8 +31,24 @@ export const projects = [
       image: "./14.png",
       link: "https://github.com/PradeepDEIVAMANI/Development-of-Android-application",
     },
+    {
+      title: "Spring Batch CSV Processor",
+      subtitle: "Java · Spring Batch",
+      description:
+        "A Java 17 and Spring Batch application that reads person records from CSV, processes them as a batch job, and persists them through Spring Data JPA. The repository also includes job and step tests.",
+      image: "./11.png",
+      link: "https://github.com/PradeepDEIVAMANI/Spring-Batch-Application",
+    },
+    {
+      title: "ID Data Extractor",
+      subtitle: "React · Python · Computer Vision",
+      description:
+        "An ID image processing project pairing a React interface with a Python service using YOLOv8 and OpenCV to explore automated identity data extraction.",
+      image: "./13.png",
+      link: "https://github.com/PradeepDEIVAMANI/FullStack--ID-Extractor",
+    },
   ];
-  
+
   export const testimonials = [
     {
       title:"Frontend Development using React",
@@ -66,7 +82,7 @@ export const projects = [
   link:"https://www.coursera.org/account/accomplishments/verify/XSUWGCK76NCQ",
 },
   ];
-  
+
   export const skills = [
     "JAVA",
     "Spring Boot",
@@ -81,4 +97,4 @@ export const projects = [
     "Argo CD",
     "Kubernetes"
   ];
-  
+

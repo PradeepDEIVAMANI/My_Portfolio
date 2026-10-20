@@ -1,34 +1,17 @@
-import { BadgeCheckIcon, ChipIcon } from "@heroicons/react/solid";
 import React from "react";
-import { skills } from "../data";
 
+const groups = [
+  ["01", "Backend & APIs", ["Java", "Spring Boot", "Spring Data JPA", "Hibernate", "REST APIs", "Hexagonal architecture", "Python", "Django", "FastAPI"]],
+  ["02", "Batch & data exchange", ["Spring Batch", "IBM MQ", "IBM COS", "Amazon S3 SDK", "CFT", "JSON", "CSV", "PostgreSQL", "MySQL", "H2", "Flyway"]],
+  ["03", "Cloud & security", ["Docker", "Kubernetes", "CronJobs", "Argo CD", "GitLab CI/CD", "Jenkins", "SonarQube", "OpenPGP", "Bouncy Castle", "HashiCorp Vault", "Terraform", "Ansible"]],
+  ["04", "Testing & quality", ["JUnit", "Mockito", "TDD", "BDD", "Performance testing", "Code review"]],
+  ["05", "Production & observability", ["Production support", "Incident response", "Kibana", "Elasticsearch", "IBM Log Analysis"]],
+  ["06", "Frontend", ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"]],
+];
 
 export default function Skills() {
-  return (
-    <section id="skills">
-      <div className="container px-5 py-10 mx-auto">
-        <div className="text-center mb-20">
-          <ChipIcon className="w-10 inline-block mb-4 text-orange-700" />
-          <h1 className="sm:text-4xl text-3xl font-medium title-font text-white mb-4">
-            Skills &amp; Technologies
-          </h1>
-          <p className="text-gray-400 leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto ">
-          "I possess a diverse skill set and expertise in various technologies, making me a versatile and capable professional."
-          </p>
-        </div>
-        <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-          {skills.map((skill) => (
-            <div key={skill} className="p-2 sm:w-1/2 w-full">
-              <div className="bg-gray-800 rounded flex p-4 h-full items-center">
-                <BadgeCheckIcon className="text-orange-700 w-6 h-6 flex-shrink-0 mr-4" />
-                <span className="title-font font-medium text-white">
-                  {skill}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <section id="skills" className="section-wrap section-block skills-section">
+    <div className="section-heading"><div className="eyebrow">04 / TOOLKIT</div><h2>Tools for the <span className="accent-text">whole lifecycle.</span></h2><p>From APIs and secure file exchange to testing, Kubernetes delivery and production support.</p></div>
+    <div className="skills-grid">{groups.map(([number, title, items]) => <article className="skill-group" key={title}><div className="skill-heading"><span>{number}</span><h3>{title}</h3></div><div className="tag-list">{items.map((item) => <span className="tag" key={item}>{item}</span>)}</div></article>)}</div>
+  </section>;
 }

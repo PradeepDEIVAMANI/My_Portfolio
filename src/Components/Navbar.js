@@ -1,42 +1,39 @@
-import { ArrowRightIcon } from "@heroicons/react/solid";
 import React from "react";
 
+const links = [
+  ["Experience", "#experience"],
+  ["Case studies", "#case-studies"],
+  ["Projects", "#projects"],
+  ["Consulting", "#consulting"],
+  ["Stack", "#skills"],
+  ["About", "#about"],
+];
 
 export default function Navbar() {
-    return (
-        <header className="bg-gradient-to-r from-orange-600 via-black-400 md:sticky top-0 z-10">
-        <div className="container mx-auto flex flex-wrap p-6 px-20 flex-col md:flex-row items-center">
-          <a className="title-font font-medium text-white mb-4 md:mb-0">
-            <a href="#about" className="ml-3 text-xl font-bold font-serif">
-              Pradeep DEIVAMANI
-            </a>
-          </a>
-          <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700 flex flex-wrap items-center text-base justify-center text-white">
-          <a href="#experience" className="mr-5 hover:text-orange-400">
-              Experience
-            </a>
-            <a href="#projects" className="mr-5 hover:text-orange-400">
-              Projects
-            </a>
-            <a href="#skills" className="mr-5 hover:text-orange-400">
-              Skills
-            </a>
-            <a href="#testimonials" className="mr-5 hover:text-orange-400">
-              Certifications
-            </a>
-            <a href="#Footer" className="mr-5 hover:text-orange-400">
-              Find Me Here
-            </a>
-          </nav>
-          <a
-            href="#contact"
-            className="inline-flex items-center bg-orange-600  border-0 py-1 px-3 focus:outline-none hover:bg-orange-700 rounded text-white mt-4 md:mt-0"
-          >
-            Hire Me
-            <ArrowRightIcon className="w-4 h-4 ml-1" />
-          </a>
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  return (
+    <header className="site-header">
+      <nav className="nav-wrap" aria-label="Main navigation">
+        <a className="brand" href="#about" aria-label="Pradeep Deivamani home">
+          <span className="brand-mark">PD</span>
+          <span>Pradeep <span className="brand-muted">Deivamani</span></span>
+        </a>
+        <div className={`nav-links${menuOpen ? " is-open" : ""}`} id="main-menu">
+          {links.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
         </div>
-      </header>
-    );
-  }
-  
+        <a className="nav-cta" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="main-menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span /><span />
+        </button>
+      </nav>
+    </header>
+  );
+}

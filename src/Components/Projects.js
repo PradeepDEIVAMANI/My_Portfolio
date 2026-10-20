@@ -1,47 +1,26 @@
-import { CodeIcon } from "@heroicons/react/solid";
 import React from "react";
 import { projects } from "../data";
 
+const projectDetails = [
+  { type: "FRONTEND · E-COMMERCE", stack: ["React", "JavaScript", "CSS"], symbol: "{ ui }" },
+  { type: "BACKEND · JAVA", stack: ["Java", "Spring Boot", "SQL"], symbol: "{ api }" },
+  { type: "PYTHON · COMPUTER VISION", stack: ["Python", "Machine learning", "OpenCV"], symbol: "⌘" },
+  { type: "ANDROID · MOBILE", stack: ["Android", "Java", "OCR"], symbol: "//" },
+  { type: "JAVA · BATCH PROCESSING", stack: ["Java 17", "Spring Batch", "Spring Data JPA", "JUnit"], symbol: "{ job }" },
+  { type: "REACT · COMPUTER VISION", stack: ["React", "Python", "YOLOv8", "OpenCV"], symbol: "[ cv ]" },
+];
 
 export default function Projects() {
   return (
-    <section id="projects" className="text-gray-400 bg-gray-900 body-font">
-      <div className="container px-5 py-10 mx-auto text-center lg:px-40">
-        <div className="flex flex-col w-full mb-20">
-          <CodeIcon className="mx-auto inline-block w-10 mb-4 text-orange-700" />
-          <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-            Apps I've Built
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-350">
-          "Explore my portfolio of thoughtfully crafted web applications, a testament to my dedication to delivering outstanding digital solutions. From intuitive user interfaces to robust back-end systems, discover the world of possibilities within my work."
-          </p>
-        </div>
-        <div className="flex flex-wrap -m-4">
-          {projects.map((project) => (
-            <a
-              href={project.link}
-              key={project.image}
-              className="sm:w-1/2 w-100 p-4">
-              <div className="flex relative">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                  src={project.image}
-                />
-                <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
-                  <h2 className="tracking-widest text-sm title-font font-medium text-orange-500 mb-1">
-                    {project.subtitle}
-                  </h2>
-                  <h1 className="title-font text-lg font-medium text-white mb-3">
-                    {project.title}
-                  </h1>
-                  <p className="leading-relaxed">{project.description}</p>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
+    <section id="projects" className="section-wrap section-block">
+      <div className="section-heading section-heading-row"><div><div className="eyebrow">03 / INDEPENDENT PROJECTS</div><h2>Built hands-on, <span className="accent-text">shared openly.</span></h2></div><p>Personal projects with source code available on GitHub. Production case studies are presented separately.</p></div>
+      <div className="project-grid">{projects.map((project, index) => {
+        const detail = projectDetails[index] || { type: project.subtitle.toUpperCase(), stack: [project.subtitle], symbol: "{ }" };
+        return <article className="project-card" key={project.title}>
+          <div className="project-art"><span className="project-number">/{String(index + 1).padStart(2, "0")}</span><span className="project-symbol">{detail.symbol}</span><span className="project-line" /></div>
+          <div className="project-body"><div className="project-type">{detail.type}</div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{detail.stack.map((item) => <span className="tag" key={item}>{item}</span>)}</div><a className="project-source-link" href={project.link} target="_blank" rel="noreferrer">Explore source code <span aria-hidden="true">↗</span></a></div>
+        </article>;
+      })}</div>
     </section>
   );
 }
