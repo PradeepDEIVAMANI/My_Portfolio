@@ -9,8 +9,33 @@ const links = [
   ["About", "#about"],
 ];
 
-export default function Navbar() {
+export default function Navbar({ theme, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState("about");
+
+  React.useEffect(() => {
+    const sectionIds = links.map(([, href]) => href.slice(1));
+    const updateActiveSection = () => {
+      let current = "about";
+      let closestTop = Number.NEGATIVE_INFINITY;
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+        const top = section?.getBoundingClientRect().top;
+        if (top !== undefined && top <= 130 && top > closestTop) {
+          current = id;
+          closestTop = top;
+        }
+      });
+      setActiveSection(current);
+    };
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("hashchange", updateActiveSection);
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("hashchange", updateActiveSection);
+    };
+  }, []);
 
   return (
     <header className="site-header">
@@ -20,8 +45,11 @@ export default function Navbar() {
           <span>Pradeep <span className="brand-muted">Deivamani</span></span>
         </a>
         <div className={`nav-links${menuOpen ? " is-open" : ""}`} id="main-menu">
-          {links.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
+          {links.map(([label, href]) => <a key={href} href={href} aria-current={activeSection === href.slice(1) ? "location" : undefined} onClick={() => setMenuOpen(false)}>{label}</a>)}
         </div>
+        <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`} aria-pressed={theme === "light"} title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}>
+          <span aria-hidden="true">{theme === "dark" ? "☼" : "☾"}</span>
+        </button>
         <a className="nav-cta" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
         <button
           className="menu-toggle"

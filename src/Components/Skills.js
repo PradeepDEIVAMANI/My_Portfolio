@@ -4,9 +4,9 @@ const groups = [
   ["01", "Backend & APIs", ["Java", "Spring Boot", "Spring Data JPA", "Hibernate", "REST APIs", "Hexagonal architecture", "Python", "Django", "FastAPI"]],
   ["02", "Batch & data exchange", ["Spring Batch", "IBM MQ", "IBM COS", "Amazon S3 SDK", "CFT", "JSON", "CSV", "PostgreSQL", "MySQL", "H2", "Flyway"]],
   ["03", "Cloud & security", ["Docker", "Kubernetes", "CronJobs", "Argo CD", "GitLab CI/CD", "Jenkins", "SonarQube", "OpenPGP", "Bouncy Castle", "HashiCorp Vault", "Terraform", "Ansible"]],
-  ["04", "Testing & quality", ["JUnit", "Mockito", "TDD", "BDD", "Performance testing", "Code review"]],
-  ["05", "Production & observability", ["Production support", "Incident response", "ServiceNow", "Kibana", "Elasticsearch", "IBM Log Analysis"]],
-  ["06", "Teamwork & delivery", ["Agile", "Scrum", "Jira", "Daily Scrum", "Sprint reviews", "Backlog refinement", "Specification workshops", "Pair programming", "Mob programming", "Business analyst collaboration"]],
+  ["04", "Teamwork & delivery", ["Agile", "Scrum", "Jira", "Daily Scrum", "Sprint reviews", "Backlog refinement", "Specification workshops", "Pair programming", "Mob programming", "Business analyst collaboration"]],
+  ["05", "Testing & quality", ["JUnit", "Mockito", "TDD", "BDD", "Performance testing", "Code review"]],
+  ["06", "Production & observability", ["Production support", "Incident response", "ServiceNow", "Kibana", "Elasticsearch", "IBM Log Analysis"]],
   ["07", "Frontend", ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"]],
 ];
 
