@@ -10,6 +10,7 @@ import Education from "./Components/Education";
 import Experience from "./Components/Experience";
 import CaseStudies from "./Components/CaseStudies";
 import Consulting from "./Components/Consulting";
+import PortfolioChatbot from "./Components/PortfolioChatbot";
 import { LanguageContext } from "./i18n";
 import "./App.css";
 
@@ -75,6 +76,7 @@ export default function App() {
           <Contact />
         </main>
         <Footer />
+        <PortfolioChatbot />
       </div>
     </LanguageContext.Provider>
   );
