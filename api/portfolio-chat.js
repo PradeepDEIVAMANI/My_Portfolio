@@ -1,4 +1,4 @@
-const MODEL = "gemini-2.5-flash-lite";
+const MODEL = "gemini-3.5-flash-lite";
 const MAX_MESSAGE_LENGTH = 1200;
 const MAX_MESSAGES = 8;
 const WINDOW_MS = 60_000;
@@ -71,19 +71,30 @@ module.exports = async function portfolioChat(req, res) {
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: PROFILE_CONTEXT }] },
         contents: messages.map(({ role, text }) => ({ role, parts: [{ text }] })),
-        generationConfig: { temperature: 0.25, maxOutputTokens: 300 },
+        generationConfig: { maxOutputTokens: 300 },
       }),
       signal: AbortSignal.timeout(15_000),
     });
     if (!upstream.ok) {
       if (upstream.status === 429) return sendJson(res, 429, { error: "The free AI quota is temporarily busy. Please try again shortly." });
+      let errorStatus;
+      let errorCode;
+      try {
+        const details = await upstream.json();
+        errorStatus = details.error?.status;
+        errorCode = details.error?.code;
+      } catch {
+        // Keep diagnostics useful without logging request content or credentials.
+      }
+      console.error("Gemini request failed", { httpStatus: upstream.status, errorStatus, errorCode });
       return sendJson(res, 502, { error: "The AI assistant is temporarily unavailable." });
     }
     const result = await upstream.json();
     const reply = result.candidates?.[0]?.content?.parts?.map((part) => part.text || "").join("").trim();
     if (!reply) return sendJson(res, 502, { error: "The AI assistant returned no answer." });
     return sendJson(res, 200, { reply });
-  } catch {
+  } catch (error) {
+    console.error("Gemini request could not be completed", { errorName: error?.name || "Error" });
     return sendJson(res, 502, { error: "The AI assistant is temporarily unavailable." });
   }
 };
