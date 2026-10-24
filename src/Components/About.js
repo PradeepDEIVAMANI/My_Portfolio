@@ -1,6 +1,9 @@
 import React from "react";
+import ArrowIcon from "./ArrowIcon";
+import { withTranslations } from "../i18n";
+import ResumeMenu from "./ResumeMenu";
 
-export default function About() {
+function About() {
   const signalItems = ["JAVA + SPRING", "MQ ORCHESTRATION", "~200K RECORDS / DAY", "SECURE COS WORKFLOWS", "KUBERNETES DELIVERY"];
 
   return (
@@ -11,8 +14,8 @@ export default function About() {
         <h1>I build reliable<br />software for the<br /><span className="accent-text">real world.</span></h1>
         <p className="hero-lead">I’m Pradeep, a Java engineer building secure enterprise banking systems—from MQ orchestration and high-volume batch processing to cloud file exchange and Kubernetes operations.</p>
         <div className="hero-actions">
-          <a className="button button-primary" href="#experience">Explore my work <span aria-hidden="true">↓</span></a>
-          <a className="button button-quiet" href="/Pradeep-Deivamani-CV.pdf" target="_blank" rel="noreferrer">View résumé <span aria-hidden="true">↗</span></a>
+          <a className="button button-primary" href="#experience">Explore my work <ArrowIcon direction="down" /></a>
+          <ResumeMenu />
         </div>
         <div className="hero-meta"><span>JAVA DEVELOPER · DEVOPS · CLOUD ARCHITECTURE</span><span>AVAILABLE FOR A CONVERSATION</span></div>
       </div>
@@ -32,3 +35,5 @@ export default function About() {
     </>
   );
 }
+
+export default withTranslations(About);

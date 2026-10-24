@@ -1,4 +1,6 @@
 import React from "react";
+import { withTranslations } from "../i18n";
+import ArrowIcon from "./ArrowIcon";
 
 const caseStudies = [
   {
@@ -30,7 +32,7 @@ const caseStudies = [
   },
 ];
 
-export default function CaseStudies() {
+function CaseStudies() {
   return (
     <section id="case-studies" className="section-wrap section-block case-studies-section">
       <div className="section-heading section-heading-row">
@@ -40,7 +42,7 @@ export default function CaseStudies() {
       <div className="case-study-list">
         {caseStudies.map((study) => (
           <article className="case-study-card" key={study.number}>
-            <div className="case-study-rail"><span>/{study.number}</span><i aria-hidden="true">↘</i></div>
+            <div className="case-study-rail"><span>/{study.number}</span><i><ArrowIcon direction="southeast" /></i></div>
             <div className="case-study-content">
               <div className="project-type">{study.label}</div>
               <h3>{study.title}</h3>
@@ -58,3 +60,5 @@ export default function CaseStudies() {
     </section>
   );
 }
+
+export default withTranslations(CaseStudies);

@@ -1,4 +1,5 @@
 import React from "react";
+import { withTranslations } from "../i18n";
 
 const groups = [
   ["01", "Backend & APIs", ["Java", "Spring Boot", "Spring Data JPA", "Hibernate", "REST APIs", "Hexagonal architecture", "Python", "Django", "FastAPI"]],
@@ -10,9 +11,11 @@ const groups = [
   ["07", "Frontend", ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"]],
 ];
 
-export default function Skills() {
+function Skills() {
   return <section id="skills" className="section-wrap section-block skills-section">
     <div className="section-heading"><div className="eyebrow">04 / TOOLKIT</div><h2>Tools for the <span className="accent-text">whole lifecycle.</span></h2><p>From APIs and secure file exchange to testing, Kubernetes delivery and production support.</p></div>
     <div className="skills-grid">{groups.map(([number, title, items]) => <article className="skill-group" key={title}><div className="skill-heading"><span>{number}</span><h3>{title}</h3></div><div className="tag-list">{items.map((item) => <span className="tag" key={item}>{item}</span>)}</div></article>)}</div>
   </section>;
 }
+
+export default withTranslations(Skills);

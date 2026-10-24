@@ -1,4 +1,6 @@
 import React from "react";
+import { withTranslations } from "../i18n";
+import ArrowIcon from "./ArrowIcon";
 
 const roles = [
   {
@@ -24,14 +26,14 @@ const roles = [
   },
 ];
 
-export default function Experience() {
+function Experience() {
   return (
     <section id="experience" className="section-wrap section-block">
       <div className="section-heading"><div className="eyebrow">01 / EXPERIENCE</div><h2>Engineering in <span className="accent-text">production.</span></h2><p>Building and supporting software where reliability, security and thoughtful engineering matter.</p></div>
       <div className="timeline">
         {roles.map((role) => <article className="role-card" key={role.title + role.date}>
           <div className="role-date">{role.date}</div>
-          <div className="role-main"><div className="role-top"><div><h3>{role.title}</h3><p className="role-company">{role.company} <span>· {role.place}</span></p></div><span className="role-mark" aria-hidden="true">↗</span></div>
+          <div className="role-main"><div className="role-top"><div><h3>{role.title}</h3><p className="role-company">{role.company} <span>· {role.place}</span></p></div><span className="role-mark"><ArrowIcon /></span></div>
             {role.metrics && <div className="role-metrics">{role.metrics.map(([value, label]) => <div className="role-metric" key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>}
             <ul>{role.points.map((point) => <li key={point}>{point}</li>)}</ul>
           </div>
@@ -40,3 +42,5 @@ export default function Experience() {
     </section>
   );
 }
+
+export default withTranslations(Experience);

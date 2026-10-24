@@ -10,9 +10,14 @@ import Education from "./Components/Education";
 import Experience from "./Components/Experience";
 import CaseStudies from "./Components/CaseStudies";
 import Consulting from "./Components/Consulting";
+import { LanguageContext } from "./i18n";
 import "./App.css";
 
 export default function App() {
+  const [language, setLanguage] = React.useState(() => {
+    try { return window.localStorage.getItem("portfolio-language") === "fr" ? "fr" : "en"; }
+    catch { return "en"; }
+  });
   const [theme, setTheme] = React.useState(() => {
     try { return window.localStorage.getItem("portfolio-theme") === "light" ? "light" : "dark"; }
     catch { return "dark"; }
@@ -21,6 +26,14 @@ export default function App() {
   React.useEffect(() => {
     try { window.localStorage.setItem("portfolio-theme", theme); } catch {}
   }, [theme]);
+
+  React.useEffect(() => {
+    try { window.localStorage.setItem("portfolio-language", language); } catch {}
+    document.documentElement.lang = language;
+    document.title = language === "fr"
+      ? "Pradeep Deivamani | Ingénieur logiciel"
+      : "Pradeep Deivamani | Software Engineer";
+  }, [language]);
 
   React.useEffect(() => {
     const shell = document.querySelector(".site-shell");
@@ -47,20 +60,22 @@ export default function App() {
   }, []);
 
   return (
-    <div className="site-shell" data-theme={theme}>
-      <Navbar theme={theme} onToggleTheme={() => setTheme((current) => current === "dark" ? "light" : "dark")} />
-      <main>
-        <About />
-        <Experience />
-        <CaseStudies />
-        <Projects />
-        <Skills />
-        <Education />
-        <Testimonials />
-        <Consulting />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <LanguageContext.Provider value={{ language, setLanguage }}>
+      <div className="site-shell" data-theme={theme}>
+        <Navbar theme={theme} onToggleTheme={() => setTheme((current) => current === "dark" ? "light" : "dark")} />
+        <main>
+          <About />
+          <Experience />
+          <CaseStudies />
+          <Projects />
+          <Skills />
+          <Education />
+          <Testimonials />
+          <Consulting />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </LanguageContext.Provider>
   );
 }

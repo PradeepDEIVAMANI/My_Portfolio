@@ -1,4 +1,6 @@
 import React from "react";
+import { LanguageContext, withTranslations } from "../i18n";
+import ArrowIcon from "./ArrowIcon";
 
 const links = [
   ["Experience", "#experience"],
@@ -9,7 +11,8 @@ const links = [
   ["About", "#about"],
 ];
 
-export default function Navbar({ theme, onToggleTheme }) {
+function Navbar({ theme, onToggleTheme }) {
+  const { language, setLanguage } = React.useContext(LanguageContext);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState("about");
 
@@ -50,7 +53,12 @@ export default function Navbar({ theme, onToggleTheme }) {
         <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`} aria-pressed={theme === "light"} title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}>
           <span aria-hidden="true">{theme === "dark" ? "☼" : "☾"}</span>
         </button>
-        <a className="nav-cta" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <div className="language-switch" role="group" aria-label="Language">
+          <button type="button" lang="en" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
+          <span aria-hidden="true" />
+          <button type="button" lang="fr" aria-pressed={language === "fr"} onClick={() => setLanguage("fr")}>FR</button>
+        </div>
+        <a className="nav-cta" href="#contact">Let’s talk <ArrowIcon /></a>
         <button
           className="menu-toggle"
           type="button"
@@ -65,3 +73,6 @@ export default function Navbar({ theme, onToggleTheme }) {
     </header>
   );
 }
+
+const TranslatedNavbar = withTranslations(Navbar);
+export default TranslatedNavbar;

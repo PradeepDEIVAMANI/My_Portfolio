@@ -1,4 +1,6 @@
 import React from "react";
+import { LanguageContext, withTranslations } from "../i18n";
+import ArrowIcon from "./ArrowIcon";
 
 const meetingTimes = [
   "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
@@ -16,7 +18,8 @@ function getParisToday() {
   return `${values.year}-${values.month}-${values.day}`;
 }
 
-export default function Contact() {
+function Contact() {
+  const { language } = React.useContext(LanguageContext);
   function getRequest(event) {
     event.preventDefault();
     const formElement = event.currentTarget.tagName === "FORM" ? event.currentTarget : event.currentTarget.form;
@@ -28,7 +31,7 @@ export default function Contact() {
     return {
       name: form.get("name"), email: form.get("email"), date: form.get("date"),
       time: form.get("time"), duration: Number(form.get("duration")),
-      topic: form.get("topic") || "Not specified",
+      topic: form.get("topic") || (language === "fr" ? "Non précisé" : "Not specified"),
     };
   }
 
@@ -36,20 +39,17 @@ export default function Contact() {
     const request = getRequest(event);
     if (!request) return;
     const { name, email, date, time, duration, topic } = request;
-    const subject = `Meeting request from ${name}`;
-    const body = [
-      "Hi Pradeep,",
-      "",
-      "I’d like to request a meeting.",
-      "",
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Preferred date: ${date}`,
-      `Preferred time: ${time} (Europe/Paris)`,
-      `Meeting length: ${duration} minutes`,
-      `Topic: ${topic}`,
-      "",
-      "Please let me know if this time works for you.",
+    const subject = language === "fr" ? `Demande de rendez-vous de ${name}` : `Meeting request from ${name}`;
+    const body = language === "fr" ? [
+      "Bonjour Pradeep,", "", "Je souhaite demander un rendez-vous.", "",
+      `Nom : ${name}`, `E-mail : ${email}`, `Date souhaitée : ${date}`,
+      `Heure souhaitée : ${time} (Europe/Paris)`, `Durée : ${duration} minutes`, `Sujet : ${topic}`,
+      "", "Merci de me confirmer si cet horaire vous convient.",
+    ].join("\n") : [
+      "Hi Pradeep,", "", "I’d like to request a meeting.", "",
+      `Name: ${name}`, `Email: ${email}`, `Preferred date: ${date}`,
+      `Preferred time: ${time} (Europe/Paris)`, `Meeting length: ${duration} minutes`, `Topic: ${topic}`,
+      "", "Please let me know if this time works for you.",
     ].join("\n");
 
     // mailto uses URI percent-encoding; URLSearchParams encodes spaces as "+",
@@ -67,10 +67,14 @@ export default function Contact() {
     const start = new Date(Date.UTC(year, month - 1, day, hour, minute));
     const end = new Date(start.getTime() + duration * 60_000);
     const calendarDate = (value) => value.toISOString().slice(0, 19).replace(/[-:]/g, "").replace(".000", "");
-    const details = `Meeting requested by ${name} (${email}).\n\nTopic: ${topic}\n\nRequested through Pradeep Deivamani’s portfolio. Times are in Europe/Paris. The meeting is confirmed when Pradeep accepts the invitation.`;
+    const details = language === "fr"
+      ? `Rendez-vous demandé par ${name} (${email}).\n\nSujet : ${topic}\n\nDemande envoyée depuis le portfolio de Pradeep Deivamani. Les horaires sont en heure de Paris (Europe/Paris). Le rendez-vous sera confirmé lorsque Pradeep acceptera l’invitation.`
+      : `Meeting requested by ${name} (${email}).\n\nTopic: ${topic}\n\nRequested through Pradeep Deivamani’s portfolio. Times are in Europe/Paris. The meeting is confirmed when Pradeep accepts the invitation.`;
     const params = new URLSearchParams({
       action: "TEMPLATE",
-      text: `Meeting request: ${topic === "Not specified" ? "Introductory conversation" : topic}`,
+      text: language === "fr"
+        ? `Demande de rendez-vous : ${topic === "Non précisé" ? "Premier échange" : topic}`
+        : `Meeting request: ${topic === "Not specified" ? "Introductory conversation" : topic}`,
       dates: `${calendarDate(start)}/${calendarDate(end)}`,
       ctz: "Europe/Paris",
       details,
@@ -89,9 +93,9 @@ export default function Contact() {
           <div className="meeting-facts">
             <div><span className="fact-icon">◷</span><span><strong>15 or 30 minutes</strong><small>Choose the length that suits you</small></span></div>
             <div><span className="fact-icon">⌖</span><span><strong>Paris time</strong><small>Times shown in Europe/Paris</small></span></div>
-            <div><span className="fact-icon">↗</span><span><strong>Calendar invitation</strong><small>I’ll receive your invite and confirm by accepting</small></span></div>
+            <div><span className="fact-icon"><ArrowIcon /></span><span><strong>Calendar invitation</strong><small>I’ll receive your invite and confirm by accepting</small></span></div>
           </div>
-          <a className="meeting-email" href="mailto:pradeepdeivamani03@gmail.com">pradeepdeivamani03@gmail.com <span aria-hidden="true">↗</span></a>
+          <a className="meeting-email" href="mailto:pradeepdeivamani03@gmail.com">pradeepdeivamani03@gmail.com <ArrowIcon /></a>
         </div>
 
         <form className="meeting-form" onSubmit={handleCalendarRequest}>
@@ -130,7 +134,7 @@ export default function Contact() {
             </label>
           </div>
           <div className="meeting-actions">
-            <button className="button button-primary meeting-submit" type="submit">Create calendar invite <span aria-hidden="true">↗</span></button>
+            <button className="button button-primary meeting-submit" type="submit">Create calendar invite <ArrowIcon /></button>
             <button className="button button-quiet meeting-submit-email" type="button" onClick={handleEmailRequest}>Email request instead</button>
           </div>
           <p className="form-note">Google Calendar opens a ready-to-send invitation to Pradeep. The meeting is confirmed when he accepts. Email is available as a fallback.</p>
@@ -139,3 +143,5 @@ export default function Contact() {
     </section>
   );
 }
+
+export default withTranslations(Contact);
