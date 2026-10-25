@@ -20,6 +20,17 @@ function getParisToday() {
 
 function Contact() {
   const { language } = React.useContext(LanguageContext);
+  const [copied, setCopied] = React.useState(false);
+
+  function copyEmail(e) {
+    e.preventDefault();
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText("pradeepdeivamani03@gmail.com");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  }
+
   function getRequest(event) {
     event.preventDefault();
     const formElement = event.currentTarget.tagName === "FORM" ? event.currentTarget : event.currentTarget.form;
@@ -52,8 +63,6 @@ function Contact() {
       "", "Please let me know if this time works for you.",
     ].join("\n");
 
-    // mailto uses URI percent-encoding; URLSearchParams encodes spaces as "+",
-    // which some mail clients display literally instead of converting to spaces.
     const mailto = `mailto:pradeepdeivamani03@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.replace(/\n/g, "\r\n"))}`;
     window.location.href = mailto;
   }
@@ -95,7 +104,19 @@ function Contact() {
             <div><span className="fact-icon">⌖</span><span><strong>Paris time</strong><small>Times shown in Europe/Paris</small></span></div>
             <div><span className="fact-icon"><ArrowIcon /></span><span><strong>Calendar invitation</strong><small>I’ll receive your invite and confirm by accepting</small></span></div>
           </div>
-          <a className="meeting-email" href="mailto:pradeepdeivamani03@gmail.com">pradeepdeivamani03@gmail.com <ArrowIcon /></a>
+          <div className="meeting-email-container">
+            <a className="meeting-email" href="mailto:pradeepdeivamani03@gmail.com">
+              pradeepdeivamani03@gmail.com <ArrowIcon />
+            </a>
+            <button
+              type="button"
+              className="copy-email-btn"
+              onClick={copyEmail}
+              aria-label="Copy email address"
+            >
+              {copied ? (language === "fr" ? "✓ Copié !" : "✓ Copied!") : (language === "fr" ? "Copier" : "Copy")}
+            </button>
+          </div>
         </div>
 
         <form className="meeting-form" onSubmit={handleCalendarRequest}>
