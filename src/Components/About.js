@@ -4,7 +4,7 @@ import { withTranslations } from "../i18n";
 import ResumeMenu from "./ResumeMenu";
 
 function About() {
-  const signalItems = ["JAVA + SPRING", "MQ ORCHESTRATION", "~200K RECORDS / DAY", "SECURE COS WORKFLOWS", "KUBERNETES DELIVERY"];
+  const signalItems = ["DISTRIBUTED SYSTEMS", "EVENT-DRIVEN ARCHITECTURE", "~200K RECORDS / DAY", "SECURE CLOUD PIPELINES", "KUBERNETES DELIVERY"];
 
   return (
     <>
@@ -12,12 +12,12 @@ function About() {
       <div className="hero-copy">
         <div className="eyebrow"><span className="status-dot" /> SOFTWARE ENGINEER · PARIS, FRANCE</div>
         <h1>I build reliable<br />software for the<br /><span className="accent-text">real world.</span></h1>
-        <p className="hero-lead">I’m Pradeep, a Java engineer building secure enterprise banking systems—from MQ orchestration and high-volume batch processing to cloud file exchange and Kubernetes operations.</p>
+        <p className="hero-lead">I’m Pradeep, a software engineer building dependable, high-scale enterprise systems—from resilient event-driven architectures and high-volume data pipelines to secure cloud services and Kubernetes operations.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#experience">Explore my work <ArrowIcon direction="down" /></a>
           <ResumeMenu />
         </div>
-        <div className="hero-meta"><span>JAVA DEVELOPER · DEVOPS · CLOUD ARCHITECTURE</span><span>AVAILABLE FOR A CONVERSATION</span></div>
+        <div className="hero-meta"><span>DISTRIBUTED SYSTEMS · CLOUD ARCHITECTURE · DEVOPS</span><span>AVAILABLE FOR A CONVERSATION</span></div>
       </div>
       <div className="hero-visual">
         <div className="portrait-frame"><img src="/pradeep-headshot-lenses.jpeg" alt="Pradeep Deivamani in a suit" /></div>

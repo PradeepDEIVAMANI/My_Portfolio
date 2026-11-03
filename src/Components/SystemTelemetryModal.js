@@ -61,7 +61,7 @@ export default function SystemTelemetryModal({ isOpen, onClose }) {
       case "whoami":
         newHistory.push({
           type: "output",
-          text: "Pradeep Deivamani — Java Software Engineer & Consultant based in Paris, France.\nSpecialized in resilient backend systems, high-volume batch processing, MQ orchestration, and cloud architecture.",
+          text: "Pradeep Deivamani — Software Engineer & Consultant based in Paris, France.\nSpecialized in resilient distributed systems, high-volume data pipelines, MQ orchestration, and cloud architecture.",
         });
         break;
       case "skills":
