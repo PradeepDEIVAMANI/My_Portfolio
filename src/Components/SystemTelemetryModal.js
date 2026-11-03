@@ -1,4 +1,5 @@
 import React from "react";
+import { createPortal } from "react-dom";
 import ArrowIcon from "./ArrowIcon";
 
 const subsystemHealth = [
@@ -31,6 +32,18 @@ export default function SystemTelemetryModal({ isOpen, onClose }) {
       terminalBottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [terminalHistory, activeTab, isOpen]);
+
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -85,7 +98,7 @@ export default function SystemTelemetryModal({ isOpen, onClose }) {
     setCommandInput("");
   }
 
-  return (
+  return createPortal(
     <div className="telemetry-backdrop" onClick={onClose} role="dialog" aria-modal="true">
       <div className="telemetry-modal" onClick={(e) => e.stopPropagation()}>
         <div className="telemetry-header">
@@ -179,6 +192,7 @@ export default function SystemTelemetryModal({ isOpen, onClose }) {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

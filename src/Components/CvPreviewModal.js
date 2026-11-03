@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { createPortal } from "react-dom";
 import ArrowIcon from "./ArrowIcon";
 
 export default function CvPreviewModal({ isOpen, onClose, cvUrl, isFrench }) {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div className="cv-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
       <div className="cv-modal-window" onClick={(e) => e.stopPropagation()}>
         <div className="cv-modal-header">
@@ -33,6 +51,7 @@ export default function CvPreviewModal({ isOpen, onClose, cvUrl, isFrench }) {
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
