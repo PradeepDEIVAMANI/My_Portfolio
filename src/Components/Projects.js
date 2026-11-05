@@ -10,6 +10,7 @@ const projectDetails = [
   { type: "MOBILE · ANDROID OCR", stack: ["Android", "Java", "OCR", "REST APIs"], symbol: "//" },
   { type: "FRONTEND · E-COMMERCE", stack: ["React", "JavaScript", "Tailwind CSS", "REST"], symbol: "{ ui }" },
   { type: "PYTHON · COMPUTER VISION", stack: ["Python", "OpenCV", "Machine Learning"], symbol: "⌘" },
+  { type: "GAME THEORY · AI · MINIMAX", stack: ["Python", "Tkinter", "JavaScript", "HTML/CSS", "Minimax", "Web Audio API"], symbol: "✕ ○" },
 ];
 
 function Projects() {
@@ -41,9 +42,17 @@ function Projects() {
                     <span className="tag" key={item}>{item}</span>
                   ))}
                 </div>
-                <a className="project-source-link" href={project.link} target="_blank" rel="noreferrer">
-                  Explore source code <ArrowIcon />
-                </a>
+                <div style={{display:"flex", gap:"12px", flexWrap:"wrap", alignItems:"center"}}>
+                  <a className="project-source-link" href={project.link} target="_blank" rel="noreferrer">
+                    Explore source code <ArrowIcon />
+                  </a>
+                  {project.playLink && (
+                    <a className="project-source-link" href={project.playLink} target="_blank" rel="noreferrer"
+                       style={{background:"linear-gradient(135deg,#6c63ff,#48cfad)", color:"#fff", borderColor:"transparent", padding:"6px 14px", borderRadius:"6px", fontWeight:"600"}}>
+                      ▶ Play Game
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           );
