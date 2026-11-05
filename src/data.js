@@ -54,7 +54,7 @@ export const projects = [
       "An unbeatable Tic-Tac-Toe agent powered by a recursive Minimax algorithm with full game-tree search. Showcases zero-sum game theory, adversarial search, and dual interfaces — a Python Tkinter desktop GUI and a polished web UI with difficulty modes, persistent scoreboard, Web Audio synth, and an interactive Minimax explainer.",
     image: "./13.png",
     link: "https://github.com/PradeepDEIVAMANI/tic-toc-toe",
-    playLink: "https://pradeepdeivamanis.github.io/tic-toc-toe/",
+    playLink: "https://pradeepdeivamani.github.io/tic-toc-toe/",
   },
 ];
 
