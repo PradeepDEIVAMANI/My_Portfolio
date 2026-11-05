@@ -8,7 +8,6 @@ const projectDetails = [
   { type: "BACKEND · CORE BANKING", stack: ["Java", "Spring Boot", "Spring Data JPA", "PostgreSQL", "TDD"], symbol: "{ api }" },
   { type: "CV · DOCUMENT EXTRACTION", stack: ["Python", "YOLOv8", "OpenCV", "React", "FastAPI"], symbol: "[ cv ]" },
   { type: "MOBILE · ANDROID OCR", stack: ["Android", "Java", "OCR", "REST APIs"], symbol: "//" },
-  { type: "FRONTEND · E-COMMERCE", stack: ["React", "JavaScript", "Tailwind CSS", "REST"], symbol: "{ ui }" },
   { type: "PYTHON · COMPUTER VISION", stack: ["Python", "OpenCV", "Machine Learning"], symbol: "⌘" },
   { type: "GAME THEORY · AI · MINIMAX", stack: ["Python", "Tkinter", "JavaScript", "HTML/CSS", "Minimax", "Web Audio API"], symbol: "✕ ○" },
   { type: "FULL-STACK · CLOUD PLATFORM", stack: ["Spring Boot 3", "React", "TypeScript", "Docker", "Render", "Vercel"], symbol: "{ lib }" },

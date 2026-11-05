@@ -32,14 +32,6 @@ export const projects = [
     link: "https://github.com/PradeepDEIVAMANI/Development-of-Android-application",
   },
   {
-    title: "React E-Commerce Platform",
-    subtitle: "React.js · JavaScript · CSS",
-    description:
-      "A modern, responsive e-commerce application built with React. Features dynamic catalog filtering, shopping cart state management, checkout flow simulation, and modular component design.",
-    image: "./11.png",
-    link: "https://github.com/PradeepDEIVAMANI/E-commerce-Web-App-React",
-  },
-  {
     title: "Computer Vision & Facial Recognition",
     subtitle: "Python · Machine Learning · OpenCV",
     description:
