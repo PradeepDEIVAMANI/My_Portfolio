@@ -11,6 +11,7 @@ const projectDetails = [
   { type: "FRONTEND · E-COMMERCE", stack: ["React", "JavaScript", "Tailwind CSS", "REST"], symbol: "{ ui }" },
   { type: "PYTHON · COMPUTER VISION", stack: ["Python", "OpenCV", "Machine Learning"], symbol: "⌘" },
   { type: "GAME THEORY · AI · MINIMAX", stack: ["Python", "Tkinter", "JavaScript", "HTML/CSS", "Minimax", "Web Audio API"], symbol: "✕ ○" },
+  { type: "FULL-STACK · CLOUD PLATFORM", stack: ["Spring Boot 3", "React", "TypeScript", "Docker", "Render", "Vercel"], symbol: "{ lib }" },
 ];
 
 function Projects() {
@@ -46,6 +47,12 @@ function Projects() {
                   <a className="project-source-link" href={project.link} target="_blank" rel="noreferrer">
                     Explore source code <ArrowIcon />
                   </a>
+                  {project.liveLink && (
+                    <a className="project-source-link" href={project.liveLink} target="_blank" rel="noreferrer"
+                       style={{background:"linear-gradient(135deg,#6c63ff,#48cfad)", color:"#fff", borderColor:"transparent", padding:"6px 14px", borderRadius:"6px", fontWeight:"600"}}>
+                      {project.liveLabel || "🚀 Live Demo"}
+                    </a>
+                  )}
                   {project.playLink && (
                     <a className="project-source-link" href={project.playLink} target="_blank" rel="noreferrer"
                        style={{background:"linear-gradient(135deg,#6c63ff,#48cfad)", color:"#fff", borderColor:"transparent", padding:"6px 14px", borderRadius:"6px", fontWeight:"600"}}>

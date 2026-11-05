@@ -56,6 +56,16 @@ export const projects = [
     link: "https://github.com/PradeepDEIVAMANI/tic-toc-toe",
     playLink: "https://pradeepdeivamani.github.io/tic-toc-toe/",
   },
+  {
+    title: "Luv 2 Read — Full-Stack Library Platform",
+    subtitle: "Spring Boot 3 · React · TypeScript · Docker",
+    description:
+      "A complete full-stack e-library platform featuring dynamic catalog search, book checkout and loan management, user reviews, return tracking, and admin dashboard operations. Powered by a Spring Boot 3 REST API backend deployed on Render, and a responsive React & TypeScript frontend deployed on Vercel.",
+    image: "./12.png",
+    link: "https://github.com/PradeepDEIVAMANI/LibraryAppication",
+    liveLink: "https://library-appication.vercel.app/home",
+    liveLabel: "🚀 Live Demo",
+  },
 ];
 
 export const testimonials = [
