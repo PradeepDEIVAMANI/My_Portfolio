@@ -5,7 +5,7 @@ import ArrowIcon from "./ArrowIcon";
 
 const projectDetails = [
   { type: "JAVA · BATCH PROCESSING", stack: ["Java 17", "Spring Batch", "Spring Data JPA", "JUnit 5", "HikariCP"], symbol: "{ job }" },
-  { type: "BACKEND · CORE BANKING", stack: ["Java", "Spring Boot", "Spring Data JPA", "PostgreSQL", "TDD"], symbol: "{ api }" },
+  { type: "BACKEND · CORE BANKING", stack: ["Java", "Swing", "JDBC", "MySQL", "ACID Ledger", "RBAC"], symbol: "{ api }" },
   { type: "CV · DOCUMENT EXTRACTION", stack: ["Python", "YOLOv8", "OpenCV", "React", "FastAPI"], symbol: "[ cv ]" },
   { type: "MOBILE · ANDROID OCR", stack: ["Android", "Java", "OCR", "REST APIs"], symbol: "//" },
   { type: "PYTHON · COMPUTER VISION", stack: ["Python", "OpenCV", "Machine Learning"], symbol: "⌘" },

@@ -9,11 +9,13 @@ export const projects = [
   },
   {
     title: "Enterprise Banking Core System",
-    subtitle: "Java · Spring Boot · PostgreSQL",
+    subtitle: "Java · Swing · ACID Ledger · Multi-Role RBAC",
     description:
-      "A robust core banking platform developed with Spring Boot, managing transactional accounts, secure ledger transfers, user balances, and RESTful endpoints. Built with ACID compliance, relational data modeling, and test-driven development (TDD).",
+      "A comprehensive core banking platform featuring role-based access control (RBAC), multi-tier operational workflows (Customer ATM, Branch Manager, and Front-Office Staff), cash deposit/withdrawal processing, atomic wire transfers, running-balance mini-statements, and cumulative liquidity aggregation.",
     image: "./12.png",
     link: "https://github.com/PradeepDEIVAMANI/javaProject",
+    liveLink: "https://pradeepdeivamani.github.io/javaProject/",
+    liveLabel: "🚀 Live Demo",
   },
   {
     title: "FullStack ID Data Extractor & Biometrics",
