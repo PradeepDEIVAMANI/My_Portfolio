@@ -3,6 +3,17 @@ import React from "react";
 export const LanguageContext = React.createContext({ language: "en", setLanguage: () => {} });
 
 const translations = {
+  "Architecture & System Design": "Architecture & Conception Système",
+  "Hexagonal domain architectures, event-driven reactive messaging, and zero-trust banking patterns.": "Architectures de domaine hexagonales, messagerie réactive événementielle et modèles bancaires zero-trust.",
+  "Domain-Driven Design": "Domain-Driven Design (DDD)",
+  "Event-Driven EDA": "Architecture événementielle (EDA)",
+  "Zero-Trust Security": "Sécurité Zero-Trust",
+  "ACID Transactions": "Transactions ACID",
+  "12-Factor App": "12-Factor App",
+  "RESTful Contracts": "Contrats d'API REST",
+  "High Availability": "Haute disponibilité",
+  "Architecture": "Architecture",
+
   "State Management": "Gestion d'état",
   "Component Architecture": "Architecture par composants",
 

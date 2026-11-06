@@ -9,7 +9,7 @@ const groups = [
     title: "Backend & APIs",
     summary: "High-throughput microservices, hexagonal architectures, and transactional banking REST APIs.",
     core: ["Java 17", "Spring Boot", "Spring Data JPA", "REST APIs"],
-    tools: ["Hibernate", "Hexagonal architecture", "Python", "Django", "FastAPI"],
+    tools: ["Hibernate", "Python", "Django", "FastAPI"],
   },
   {
     number: "02",
@@ -59,6 +59,14 @@ const groups = [
     core: ["React", "JavaScript", "HTML / CSS"],
     tools: ["Tailwind CSS", "Web Audio API", "Responsive Design", "State Management", "Component Architecture"],
   },
+  {
+    number: "08",
+    category: "architecture",
+    title: "Architecture & System Design",
+    summary: "Hexagonal domain architectures, event-driven reactive messaging, and zero-trust banking patterns.",
+    core: ["Hexagonal Architecture", "Domain-Driven Design", "Microservices", "Event-Driven EDA"],
+    tools: ["Zero-Trust Security", "ACID Transactions", "12-Factor App", "RESTful Contracts", "High Availability"],
+  },
 ];
 
 const categoryFilters = [
@@ -66,6 +74,7 @@ const categoryFilters = [
   { id: "backend", label: "Backend & APIs" },
   { id: "batch", label: "Batch & Data" },
   { id: "cloud", label: "Cloud & Security" },
+  { id: "architecture", label: "Architecture" },
   { id: "testing", label: "Quality & Testing" },
   { id: "observability", label: "Observability" },
 ];
@@ -137,13 +146,10 @@ function Skills() {
         </div>
       </div>
 
-      {/* Modern Grid Cards */}
+      {/* Perfectly Symmetrical 2-Column Grid (4 rows of 2 = 8 cards) */}
       <div className="skills-modern-grid">
-        {filteredGroups.map((g, index) => {
-          const isSpanningRow = (filteredGroups.length === 7 && index === 6) ||
-            (filteredGroups.length > 2 && filteredGroups.length % 3 === 1 && index === filteredGroups.length - 1);
-          return (
-            <article className={`skill-card-modern${isSpanningRow ? " is-span-row" : ""}`} key={g.title}>
+        {filteredGroups.map((g) => (
+          <article className="skill-card-modern" key={g.title}>
             <div className="skill-card-header">
               <span className="skill-card-badge">{g.number}</span>
               <div>
@@ -177,9 +183,8 @@ function Skills() {
               </div>
             </div>
           </article>
-        );
-      })}
-    </div>
+        ))}
+      </div>
     </section>
   );
 }
