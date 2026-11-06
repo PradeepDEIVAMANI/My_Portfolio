@@ -88,6 +88,9 @@ a { color: inherit; text-decoration: none; }
 .role-metric { min-height: 64px; display: flex; flex-direction: column; justify-content: center; gap: 5px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 5px; background: rgba(131,240,196,.035); }
 .role-metric strong { color: var(--accent); font: 500 17px 'DM Mono',monospace; }
 .role-metric span { color: var(--muted); font-size: 11px; }
+.role-skills { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 16px; }
+.role-skill-tag { font: 500 11px 'DM Mono', monospace; padding: 3px 8px; border-radius: 4px; background: rgba(131,240,196,.06); border: 1px solid rgba(131,240,196,.18); color: var(--accent); letter-spacing: .02em; transition: all .2s ease; }
+.role-skill-tag:hover { background: rgba(131,240,196,.14); border-color: var(--accent); }
 .role-main ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
 .role-main li { position: relative; padding-left: 16px; font-size: 13.5px; line-height: 1.8; color: var(--muted); }
 .role-main li::before { content: ''; position: absolute; left: 1px; top: .64em; width: 6px; height: 6px; border-right: 1px solid var(--accent); border-bottom: 1px solid var(--accent); transform: rotate(-45deg); }
@@ -622,6 +625,7 @@ body { background: #070a10; }
 .site-shell[data-theme="light"] .project-body > p,.site-shell[data-theme="light"] .cert-card p,.site-shell[data-theme="light"] .publication p,.site-shell[data-theme="light"] .case-study-details p,.site-shell[data-theme="light"] .case-study-outcome span,.site-shell[data-theme="light"] .consulting-card p { color: #596b7a; }
 .site-shell[data-theme="light"] .role-main li { color: #596b7a; }
 .site-shell[data-theme="light"] .role-metric,.site-shell[data-theme="light"] .languages { background: rgba(255,255,255,.65); }
+.site-shell[data-theme="light"] .role-skill-tag { background: rgba(8,126,104,.07); border-color: rgba(8,126,104,.2); color: #087e68; }
 .site-shell[data-theme="light"] .role-metric span,.site-shell[data-theme="light"] .tag,.site-shell[data-theme="light"] .skill-group .tag { color: #465969; }
 .site-shell[data-theme="light"] .tag,.site-shell[data-theme="light"] .skill-group .tag { border-color: rgba(25,47,69,.13); background: rgba(33,71,103,.045); }
 .site-shell[data-theme="light"] .skill-group:hover .tag,.site-shell[data-theme="light"] .skill-group .tag:hover { color: #123b35; border-color: rgba(8,126,104,.3); background: rgba(8,126,104,.08); }
