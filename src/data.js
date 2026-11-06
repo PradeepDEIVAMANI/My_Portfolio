@@ -1,11 +1,13 @@
 export const projects = [
   {
     title: "Spring Batch CSV Data Pipeline",
-    subtitle: "Java 17 · Spring Batch",
+    subtitle: "Java 17 · Spring Batch 5 · Spring Data JPA",
     description:
       "An enterprise Java 17 and Spring Batch application engineered for high-throughput batch operations. Implements chunk-based processing (ItemReader, ItemProcessor, ItemWriter), fault-tolerant skip/retry policies, transaction isolation, and persistence through Spring Data JPA with end-to-end integration tests.",
     image: "./11.png",
     link: "https://github.com/PradeepDEIVAMANI/Spring-Batch-Application",
+    liveLink: "https://pradeepdeivamani.github.io/Spring-Batch-Application/",
+    liveLabel: "🚀 Live Demo",
   },
   {
     title: "Enterprise Banking Core System",
