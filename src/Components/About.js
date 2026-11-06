@@ -69,17 +69,6 @@ function About({ onOpenTelemetry }) {
             Explore Live Projects <ArrowIcon direction="down" />
           </a>
           <ResumeMenu />
-          <button
-            type="button"
-            className="button button-secondary hero-terminal-btn"
-            onClick={() => {
-              playClick();
-              if (onOpenTelemetry) onOpenTelemetry();
-            }}
-          >
-            <span className="terminal-btn-icon">&gt;_</span>
-            <span>Terminal (Ctrl+K)</span>
-          </button>
         </div>
 
         <div className="hero-meta">

@@ -83,7 +83,7 @@ export default function App() {
           <Consulting />
           <Contact />
         </main>
-        <Footer />
+        <Footer onOpenTerminal={() => setTelemetryOpen(true)} />
         <PortfolioChatbot />
 
         {/* Floating Developer CLI Terminal Launcher (Ctrl+K) */}

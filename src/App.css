@@ -859,11 +859,12 @@ body { background: #070a10; }
   letter-spacing: 0.04em;
 }
 
-/* Floating Terminal Launcher (Bottom-Right) */
+/* Floating Terminal Launcher (Bottom-Left) */
 .floating-terminal-btn {
   position: fixed;
   bottom: 24px;
-  right: 90px;
+  left: 24px;
+  right: auto;
   z-index: 90;
   display: inline-flex;
   align-items: center;
@@ -878,6 +879,26 @@ body { background: #070a10; }
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(131, 240, 196, 0.15);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-terminal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: rgba(131, 240, 196, 0.08);
+  border: 1px solid rgba(131, 240, 196, 0.25);
+  border-radius: 6px;
+  color: var(--accent);
+  font: 600 11px 'DM Mono', monospace;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.footer-terminal-btn:hover {
+  background: rgba(131, 240, 196, 0.16);
+  border-color: var(--accent);
+  transform: translateY(-1px);
 }
 
 .floating-terminal-btn:hover {
@@ -1351,8 +1372,9 @@ body { background: #070a10; }
     grid-template-columns: repeat(2, 1fr);
   }
   .floating-terminal-btn {
-    bottom: 80px;
-    right: 20px;
+    bottom: 20px;
+    left: 15px;
+    right: auto;
     padding: 6px 11px;
     font-size: 10px;
   }
