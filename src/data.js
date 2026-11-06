@@ -38,14 +38,6 @@ export const projects = [
     link: "https://github.com/PradeepDEIVAMANI/Development-of-Android-application",
   },
   {
-    title: "Computer Vision & Facial Recognition",
-    subtitle: "Python · Machine Learning · OpenCV",
-    description:
-      "A computer vision system implementing face detection and image classification algorithms using OpenCV and Python. Demonstrates real-time video stream processing and feature extraction.",
-    image: "./13.png",
-    link: "https://github.com/PradeepDEIVAMANI/ComputerVision",
-  },
-  {
     title: "Tic-Tac-Toe: Minimax AI",
     subtitle: "Python · JavaScript · Game Theory",
     description:
