@@ -36,6 +36,8 @@ export const projects = [
       "A native Android application utilizing optical character recognition (OCR) and dynamic data extraction from physical documents. Features background thread processing, dynamic search generation, and camera lifecycle optimization.",
     image: "./14.png",
     link: "https://github.com/PradeepDEIVAMANI/Development-of-Android-application",
+    liveLink: "https://pradeepdeivamani.github.io/Development-of-Android-application/",
+    liveLabel: "🚀 Live Demo",
   },
   {
     title: "Tic-Tac-Toe: Minimax AI",
