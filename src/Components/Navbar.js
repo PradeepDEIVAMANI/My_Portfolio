@@ -2,7 +2,6 @@ import React from "react";
 import { LanguageContext, withTranslations } from "../i18n";
 import ArrowIcon from "./ArrowIcon";
 import SystemTelemetryModal from "./SystemTelemetryModal";
-import SoundToggle from "./SoundToggle";
 import { playClick } from "../utils/audio";
 
 const links = [
@@ -88,11 +87,8 @@ function Navbar({ theme, onToggleTheme, telemetryOpen, setTelemetryOpen }) {
             aria-label="Open System Telemetry and Health"
           >
             <span className="telemetry-live-dot" />
-            <span className="telemetry-pill-text">SYS: 6/6 UP</span>
+            <span className="telemetry-pill-text">SYS: UP</span>
           </button>
-
-          {/* Sound FX Haptics Toggle */}
-          <SoundToggle />
 
           {/* Theme Toggle */}
           <button

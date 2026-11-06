@@ -674,10 +674,10 @@ body { background: #070a10; }
 
 
 /* System Telemetry & Actuator Health Modal */
-.telemetry-pill-btn { display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border: 1px solid rgba(131,240,196,.35); border-radius: 999px; background: rgba(131,240,196,.06); color: var(--accent); font: 500 10px 'DM Mono', monospace; cursor: pointer; transition: all .2s ease; }
+.telemetry-pill-btn { display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px; border: 1px solid rgba(131,240,196,.35); border-radius: 999px; background: rgba(131,240,196,.06); color: var(--accent); font: 600 10px 'DM Mono', monospace; cursor: pointer; transition: all .2s ease; white-space: nowrap; flex-shrink: 0; line-height: 1; }
 .telemetry-pill-btn:hover { background: rgba(131,240,196,.14); border-color: var(--accent); transform: translateY(-1px); }
-.telemetry-live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse-live 2s infinite; }
-.telemetry-pill-text { font-weight: 600; letter-spacing: .05em; }
+.telemetry-live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse-live 2s infinite; flex-shrink: 0; }
+.telemetry-pill-text { font-weight: 600; letter-spacing: .05em; white-space: nowrap; }
 @keyframes pulse-live { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .4; transform: scale(.85); } }
 
 .telemetry-backdrop { position: fixed; inset: 0; z-index: 100; background: rgba(4,7,11,.75); backdrop-filter: blur(10px); display: grid; place-items: center; padding: 20px; animation: modal-fade .2s ease-out; }
@@ -828,47 +828,7 @@ body { background: #070a10; }
    Tactile & Techie Suite: SFX, Architecture Specs, CLI & Telemetry
    ========================================================================== */
 
-/* Sound FX Toggle Button */
-.sound-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--muted);
-  font: 500 10px 'DM Mono', monospace;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
 
-.sound-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text);
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.sound-icon {
-  font-size: 11px;
-}
-
-.sound-text {
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
-
-
-.terminal-live-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--accent);
-  animation: pulse-live 2s infinite ease-in-out;
-}
 
 .terminal-btn-icon {
   font-weight: 800;
@@ -1303,16 +1263,7 @@ body { background: #070a10; }
 /* Light Mode Overrides for Techie Suite */
 
 
-.site-shell[data-theme="light"] .sound-toggle-btn {
-  background: rgba(26, 46, 65, 0.05);
-  border-color: rgba(26, 46, 65, 0.15);
-  color: #536576;
-}
 
-.site-shell[data-theme="light"] .sound-toggle-btn:hover {
-  color: #132334;
-  border-color: #087e68;
-}
 
 .site-shell[data-theme="light"] .hero-telemetry-badge {
   background: rgba(8, 126, 104, 0.08);
