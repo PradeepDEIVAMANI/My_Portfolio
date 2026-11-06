@@ -238,18 +238,18 @@ export default function ArchitectureModal({ project, isOpen, onClose }) {
   };
 
   return createPortal(
-    <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-label="Architecture Specification">
-      <div className="modal-shell arch-modal-shell" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <div className="modal-title-wrap">
+    <div className="arch-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-label="Architecture Specification">
+      <div className="arch-modal-shell" onClick={(e) => e.stopPropagation()}>
+        <div className="arch-modal-header">
+          <div className="arch-modal-title-wrap">
             <span className="arch-badge">SYSTEM ARCHITECTURE SPECIFICATION</span>
-            <h2 className="modal-title">{project.title}</h2>
+            <h2 className="arch-modal-title">{project.title}</h2>
             <div className="arch-archetype">{arch.archetype}</div>
           </div>
-          <button className="modal-close" onClick={() => { playClick(); onClose(); }} aria-label="Close Architecture Modal">&times;</button>
+          <button className="arch-modal-close" onClick={() => { playClick(); onClose(); }} aria-label="Close Architecture Modal">&times;</button>
         </div>
 
-        <div className="modal-body arch-modal-body">
+        <div className="arch-modal-body">
           {/* Key Metrics Bar */}
           <div className="arch-metrics-bar">
             {Object.entries(arch.metrics).map(([k, v]) => (

@@ -859,54 +859,7 @@ body { background: #070a10; }
   letter-spacing: 0.04em;
 }
 
-/* Floating Terminal Launcher (Bottom-Left) */
-.floating-terminal-btn {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  right: auto;
-  z-index: 90;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 14px;
-  background: rgba(10, 16, 26, 0.88);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(131, 240, 196, 0.35);
-  border-radius: 999px;
-  color: var(--accent);
-  font: 600 11px 'DM Mono', monospace;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(131, 240, 196, 0.15);
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-.footer-terminal-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 10px;
-  background: rgba(131, 240, 196, 0.08);
-  border: 1px solid rgba(131, 240, 196, 0.25);
-  border-radius: 6px;
-  color: var(--accent);
-  font: 600 11px 'DM Mono', monospace;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.footer-terminal-btn:hover {
-  background: rgba(131, 240, 196, 0.16);
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.floating-terminal-btn:hover {
-  background: rgba(14, 22, 35, 0.95);
-  border-color: var(--accent);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(131, 240, 196, 0.3);
-  transform: translateY(-2px);
-}
 
 .terminal-live-dot {
   width: 7px;
@@ -1080,6 +1033,18 @@ body { background: #070a10; }
 }
 
 /* Architecture Modal Styling */
+.arch-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(4, 7, 11, 0.86);
+  backdrop-filter: blur(14px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  animation: modal-fade 0.2s ease-out;
+}
+
 .arch-modal-shell {
   width: min(840px, 95vw);
   max-height: 90vh;
@@ -1090,6 +1055,46 @@ body { background: #070a10; }
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
+  z-index: 10001;
+}
+
+.arch-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(5, 9, 13, 0.95);
+}
+
+.arch-modal-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.arch-modal-title {
+  margin: 4px 0 2px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.arch-modal-close {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.15s ease;
+}
+
+.arch-modal-close:hover {
+  color: #ffffff;
 }
 
 .arch-badge {
@@ -1296,12 +1301,7 @@ body { background: #070a10; }
 }
 
 /* Light Mode Overrides for Techie Suite */
-.site-shell[data-theme="light"] .floating-terminal-btn {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(8, 126, 104, 0.4);
-  color: #087e68;
-  box-shadow: 0 8px 24px rgba(26, 46, 65, 0.15);
-}
+
 
 .site-shell[data-theme="light"] .sound-toggle-btn {
   background: rgba(26, 46, 65, 0.05);
@@ -1352,6 +1352,14 @@ body { background: #070a10; }
   border-color: rgba(108, 99, 255, 0.3);
 }
 
+.site-shell[data-theme="light"] .arch-modal-header {
+  background: #f8fafc;
+}
+
+.site-shell[data-theme="light"] .arch-modal-title {
+  color: #132334;
+}
+
 .site-shell[data-theme="light"] .arch-section-title {
   color: #132334;
 }
@@ -1371,16 +1379,7 @@ body { background: #070a10; }
   .hero-metrics-strip {
     grid-template-columns: repeat(2, 1fr);
   }
-  .floating-terminal-btn {
-    bottom: 20px;
-    left: 15px;
-    right: auto;
-    padding: 6px 11px;
-    font-size: 10px;
-  }
-  .terminal-kbd {
-    display: none;
-  }
+
   .arch-metrics-bar {
     grid-template-columns: 1fr;
   }
