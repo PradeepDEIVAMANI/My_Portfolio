@@ -26,6 +26,8 @@ export const projects = [
       "An automated identity document inspection pipeline pairing a React client with a Python computer vision service. Leverages YOLOv8 object detection and OpenCV image pre-processing to extract and validate identity attributes automatically.",
     image: "./13.png",
     link: "https://github.com/PradeepDEIVAMANI/FullStack--ID-Extractor",
+    liveLink: "https://pradeepdeivamani.github.io/FullStack--ID-Extractor/",
+    liveLabel: "🚀 Live Demo",
   },
   {
     title: "Semantic Mobile OCR & Android Application",
