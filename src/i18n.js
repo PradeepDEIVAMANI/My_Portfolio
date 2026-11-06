@@ -395,6 +395,89 @@ const translations = {
   "Containerized Portability": "Portabilité conteneurisée",
   "Packaged backend with multi-stage Docker build files.": "Backend packagé avec fichiers de build Docker multi-étapes.",
   "Ensures reproducible environments from local development to production cloud deployment.": "Assure des environnements reproductibles du développement local jusqu'à la production cloud.",
+
+  // Case Studies Interactive Architecture Diagram Translations
+  "Producer": "Producteur",
+  "Broker": "Courtier",
+  "Orchestrator": "Orchestrateur",
+  "Consumer": "Consommateur",
+  "Telemetry": "Télémétrie",
+  "Source": "Source",
+  "Security": "Sécurité",
+  "Compute": "Calcul",
+  "Persistence": "Persistance",
+  "Audit": "Audit",
+  "Client": "Client",
+  "Gateway": "Passerelle",
+  "Storage": "Stockage",
+  "Generation": "Génération",
+  "Integration": "Intégration",
+  "Upstream Systems": "Systèmes amont",
+  "Heterogeneous Apps": "Applications hétérogènes",
+  "JMS Headers": "En-têtes JMS",
+  "IBM MQ Cluster": "Cluster IBM MQ",
+  "Queue Managers": "Gestionnaires de files",
+  "Persistent Queues": "Files persistantes",
+  "Spring Boot Orchestrator": "Orchestrateur Spring Boot",
+  "2 Microservices": "2 microservices",
+  "Concurrent Listeners": "Écouteurs concurrents",
+  "Downstream Dispatch": "Distribution aval",
+  "Target Teams & Services": "Équipes & services cibles",
+  "Safe Hand-Off": "Transfert sécurisé",
+  "Kibana & Log Analytics": "Kibana & Analyse de logs",
+  "Elasticsearch · Alerting": "Elasticsearch · Alertes",
+  "Queue Health Metrics": "Métriques de santé des files",
+  "IBM Cloud Storage": "Stockage IBM Cloud",
+  "COS / S3 API": "API COS / S3",
+  "S3 API · TLS 1.3": "API S3 · TLS 1.3",
+  "Vault & PGP Engine": "Moteur Vault & PGP",
+  "Bouncy Castle · Vault": "Bouncy Castle · Vault",
+  "Dynamic Secrets": "Secrets dynamiques",
+  "Spring Batch Pipeline": "Pipeline Spring Batch",
+  "Chunk Processing": "Traitement par chunks",
+  "FaultTolerant Step": "Étape tolérante aux pannes",
+  "PostgreSQL Cluster": "Cluster PostgreSQL",
+  "Spring Data JPA": "Spring Data JPA",
+  "ACID · HikariCP": "ACID · HikariCP",
+  "Cloud Archival Bucket": "Bucket d'archivage cloud",
+  "COS Lifecycle Bucket": "Bucket de cycle de vie COS",
+  "SHA-256 Audit": "Audit SHA-256",
+  "Case Management Apps": "Applications de gestion de dossiers",
+  "REST Clients / Portal": "Clients REST / Portail",
+  "HTTPS / REST": "HTTPS / REST",
+  "Spring REST Document API": "API documentaire Spring REST",
+  "Document Microservice": "Microservice documentaire",
+  "Multipart Streaming": "Flux multipart",
+  "IBM Cloud Object Storage": "IBM Cloud Object Storage",
+  "Secure COS Repository": "Dépôt sécurisé COS",
+  "Signed URL Access": "Accès par URL signée",
+  "Batch PDF Engine": "Moteur batch de PDF",
+  "Spring Batch Worker": "Worker Spring Batch",
+  "Scheduled Worker": "Traitement planifié",
+  "IBM MQ Event Broadcast": "Diffusion d'événements IBM MQ",
+  "Event Notification": "Notification d'événements",
+  "Pub/Sub Topics": "Sujets Pub/Sub",
+  "Business workflows": "Flux métier",
+  "NODE 01": "NŒUD 01",
+  "NODE 02": "NŒUD 02",
+  "NODE 03": "NŒUD 03",
+  "NODE 04": "NŒUD 04",
+  "NODE 05": "NŒUD 05",
+  "Banking applications submit real-time event messages referencing TAR archive payloads and workflow identifiers.": "Les applications bancaires soumettent des messages d'événements en temps réel référençant des archives TAR et des identifiants de flux.",
+  "Clustered queue managers guarantee at-least-once message delivery with isolated Dead Letter Queues (DLQ).": "Les gestionnaires de files en cluster garantissent une livraison au moins une fois avec files de rebut (DLQ) isolées.",
+  "Validates incoming payload schemas, enforces business routing rules, and extracts TAR contents securely.": "Valide les schémas des messages entrants, applique les règles de routage métier et extrait le contenu des archives TAR en toute sécurité.",
+  "Dispatches validated archives to respective processing teams with delivery receipts and transaction confirmations.": "Transmet les archives validées aux équipes de traitement respectives avec accusés de réception et confirmations de transaction.",
+  "Continuous telemetry tracking queue depths, consumer lag, and automated alerts for blocked messages across environments.": "Télémétrie continue analysant la profondeur des files, le retard des consommateurs et alertes automatisées pour les messages bloqués.",
+  "CronJob triggers ingestion. Daily encrypted CSV archives retrieved via S3-compatible COS SDK with stream buffers.": "Un CronJob déclenche l’ingestion. Les archives CSV chiffrées quotidiennes sont récupérées via le SDK COS compatible S3 avec des flux en mémoire tampon.",
+  "Decryption certificates fetched dynamically from HashiCorp Vault; file decrypted in memory without touching disk.": "Certificats de déchiffrement récupérés dynamiquement depuis HashiCorp Vault ; fichier déchiffré en mémoire sans écriture sur disque.",
+  "Chunk-based processing (ItemReader -> ItemProcessor -> ItemWriter) with skip/retry policies and schema validation.": "Traitement par blocs (ItemReader -> ItemProcessor -> ItemWriter) avec politiques de saut/réessai et validation de schéma.",
+  "Transactional batch writes with rollback safety and automatic reconciliation against ledger balances.": "Écritures batch transactionnelles avec sécurité de rollback et rapprochement automatique des soldes du grand livre.",
+  "Source CSV archived into an immutable audit bucket with execution status and cryptographic hashes.": "CSV source archivé dans un bucket d'audit immuable avec statut d'exécution et hachages cryptographiques.",
+  "Case workers and internal banking platforms initiate document uploads, status queries, and metadata updates.": "Les gestionnaires de dossiers et plateformes bancaires internes initient les téléversements de documents, consultations de statut et mises à jour de métadonnées.",
+  "Handles CRUD operations, validates file headers & MIME types, and orchestrates attachment metadata.": "Gère les opérations CRUD, valide les en-têtes de fichiers & types MIME, et orchestre les métadonnées des pièces jointes.",
+  "Stores binary attachments with versioning, immutable audit metadata, and encryption at rest.": "Stocke les pièces jointes binaires avec versionnement, métadonnées d'audit immuables et chiffrement au repos.",
+  "Retrieves case facts from the database and compiles formal compliance attestation PDF documents.": "Récupère les éléments du dossier en base de données et compile les documents PDF formels d'attestation de conformité.",
+  "Broadcasts document state transitions and archive completion notices to downstream banking workflows.": "Diffuse les transitions d'état des documents et les avis d'archivage vers les flux bancaires aval.",
 };
 
 const attributeTranslations = {
@@ -407,7 +490,25 @@ function translateText(text, language) {
   const leading = text.match(/^\s*/)?.[0] || "";
   const trailing = text.match(/\s*$/)?.[0] || "";
   const key = text.trim();
-  return translations[key] ? `${leading}${translations[key]}${trailing}` : text;
+  if (translations[key]) return `${leading}${translations[key]}${trailing}`;
+
+  // Handle wrapped in parentheses, e.g. "(Heterogeneous Apps)"
+  if (key.startsWith("(") && key.endsWith(")")) {
+    const inner = key.slice(1, -1).trim();
+    if (translations[inner]) {
+      return `${leading}(${translations[inner]})${trailing}`;
+    }
+  }
+
+  // Handle bullet prefix, e.g. "· India"
+  if (key.startsWith("· ")) {
+    const inner = key.slice(2).trim();
+    if (translations[inner]) {
+      return `${leading}· ${translations[inner]}${trailing}`;
+    }
+  }
+
+  return text;
 }
 
 function translateTree(node, language) {

@@ -167,7 +167,7 @@ const caseStudies = [
   },
 ];
 
-function ArchitectureDiagram({ architecture }) {
+const ArchitectureDiagram = withTranslations(function ArchitectureDiagram({ architecture }) {
   const [activeStepIndex, setActiveStepIndex] = React.useState(0);
   const activeStep = architecture.steps[activeStepIndex] || architecture.steps[0];
 
@@ -212,7 +212,7 @@ function ArchitectureDiagram({ architecture }) {
         <div className="arch-inspector-header">
           <div className="arch-inspector-title">
             <span className="arch-inspector-step">NODE 0{activeStepIndex + 1}</span>
-            <h4>{activeStep.label} <small>({activeStep.sub})</small></h4>
+            <h4>{stepLabel(activeStep.label)} <small>({activeStep.sub})</small></h4>
           </div>
           <span className="arch-protocol-tag">{activeStep.protocol}</span>
         </div>
@@ -220,6 +220,10 @@ function ArchitectureDiagram({ architecture }) {
       </div>
     </div>
   );
+});
+
+function stepLabel(label) {
+  return label;
 }
 
 function CaseStudies() {
