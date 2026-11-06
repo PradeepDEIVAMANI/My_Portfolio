@@ -78,72 +78,79 @@ function Navbar({ theme, onToggleTheme, telemetryOpen, setTelemetryOpen }) {
             ))}
           </div>
 
-          {/* System Telemetry Live Pill */}
-          <button
-            className="telemetry-pill-btn"
-            type="button"
-            onClick={handleOpenTelemetry}
-            title="System Telemetry & Health (/actuator/health)"
-            aria-label="Open System Telemetry and Health"
-          >
-            <span className="telemetry-live-dot" />
-            <span className="telemetry-pill-text">SYS: UP</span>
-          </button>
-
-          {/* Theme Toggle */}
-          <button
-            className="theme-toggle"
-            type="button"
-            onClick={() => {
-              playClick();
-              if (onToggleTheme) onToggleTheme();
-            }}
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-            aria-pressed={theme === "light"}
-            title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-          >
-            <span aria-hidden="true">{theme === "dark" ? "☼" : "☾"}</span>
-          </button>
-
-          <div className="language-switch" role="group" aria-label="Language">
+          <div className="nav-controls">
+            {/* System Telemetry Live Pill */}
             <button
+              className="telemetry-pill-btn"
               type="button"
-              lang="en"
-              aria-pressed={language === "en"}
-              onClick={() => {
-                playClick();
-                setLanguage("en");
-              }}
+              onClick={handleOpenTelemetry}
+              title="System Telemetry & Health (/actuator/health)"
+              aria-label="Open System Telemetry and Health"
             >
-              EN
+              <span className="telemetry-live-dot" />
+              <span className="telemetry-pill-text">SYS: UP</span>
             </button>
-            <span aria-hidden="true" />
+
+            {/* Theme Toggle */}
             <button
+              className="theme-toggle"
               type="button"
-              lang="fr"
-              aria-pressed={language === "fr"}
               onClick={() => {
                 playClick();
-                setLanguage("fr");
+                if (onToggleTheme) onToggleTheme();
+              }}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+              aria-pressed={theme === "light"}
+              title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+            >
+              <span aria-hidden="true">{theme === "dark" ? "☼" : "☾"}</span>
+            </button>
+
+            <div className="language-switch" role="group" aria-label="Language">
+              <button
+                type="button"
+                lang="en"
+                aria-pressed={language === "en"}
+                onClick={() => {
+                  playClick();
+                  setLanguage("en");
+                }}
+              >
+                EN
+              </button>
+              <span aria-hidden="true" />
+              <button
+                type="button"
+                lang="fr"
+                aria-pressed={language === "fr"}
+                onClick={() => {
+                  playClick();
+                  setLanguage("fr");
+                }}
+              >
+                FR
+              </button>
+            </div>
+
+            <a className="nav-cta" href="#contact" onClick={playClick}>
+              <span>Let’s talk</span>
+              <ArrowIcon />
+            </a>
+
+            <button
+              className="menu-toggle"
+              type="button"
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={menuOpen}
+              aria-controls="main-menu"
+              onClick={() => {
+                playClick();
+                setMenuOpen((open) => !open);
               }}
             >
-              FR
+              <span /><span />
             </button>
           </div>
-          <a className="nav-cta" href="#contact" onClick={playClick}>Let’s talk <ArrowIcon /></a>
-          <button
-            className="menu-toggle"
-            type="button"
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={menuOpen}
-            aria-controls="main-menu"
-            onClick={() => {
-              playClick();
-              setMenuOpen((open) => !open);
-            }}
-          >
-            <span /><span />
-          </button>
         </nav>
       </header>
 
