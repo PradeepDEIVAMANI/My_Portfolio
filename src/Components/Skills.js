@@ -57,7 +57,7 @@ const groups = [
     title: "Frontend & interactive UI",
     summary: "Modern component-driven web interfaces, responsive state management, and real-time simulators.",
     core: ["React", "JavaScript", "HTML / CSS"],
-    tools: ["Tailwind CSS", "Web Audio API", "Responsive Design"],
+    tools: ["Tailwind CSS", "Web Audio API", "Responsive Design", "State Management", "Component Architecture"],
   },
 ];
 
@@ -139,8 +139,11 @@ function Skills() {
 
       {/* Modern Grid Cards */}
       <div className="skills-modern-grid">
-        {filteredGroups.map((g) => (
-          <article className="skill-card-modern" key={g.title}>
+        {filteredGroups.map((g, index) => {
+          const isSpanningRow = (filteredGroups.length === 7 && index === 6) ||
+            (filteredGroups.length > 2 && filteredGroups.length % 3 === 1 && index === filteredGroups.length - 1);
+          return (
+            <article className={`skill-card-modern${isSpanningRow ? " is-span-row" : ""}`} key={g.title}>
             <div className="skill-card-header">
               <span className="skill-card-badge">{g.number}</span>
               <div>
@@ -174,8 +177,9 @@ function Skills() {
               </div>
             </div>
           </article>
-        ))}
-      </div>
+        );
+      })}
+    </div>
     </section>
   );
 }

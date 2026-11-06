@@ -3,6 +3,9 @@ import React from "react";
 export const LanguageContext = React.createContext({ language: "en", setLanguage: () => {} });
 
 const translations = {
+  "State Management": "Gestion d'état",
+  "Component Architecture": "Architecture par composants",
+
   "04 / TOOLKIT & ARCHITECTURE": "04 / BOÎTE À OUTILS & ARCHITECTURE",
   "Engineering stack &": "Stack technique &",
   "lifecycle tools.": "outils du cycle de vie.",

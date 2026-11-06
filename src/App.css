@@ -1624,3 +1624,27 @@ body { background: #070a10; }
     max-width: 100%;
   }
 }
+
+/* Full-width span for bottom card to eliminate awkward empty gaps */
+.skill-card-modern.is-span-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(280px, 1.15fr) minmax(230px, 1fr) minmax(230px, 1fr);
+  align-items: center;
+  gap: 28px;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, rgba(131, 240, 196, 0.05), rgba(141, 189, 255, 0.025)), var(--surface);
+  border-color: rgba(131, 240, 196, 0.25);
+}
+
+.skill-card-modern.is-span-row .skill-card-header {
+  margin-bottom: 0;
+}
+
+@media(max-width: 1024px) {
+  .skill-card-modern.is-span-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 22px;
+  }
+}
