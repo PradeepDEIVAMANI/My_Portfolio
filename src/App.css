@@ -822,3 +822,544 @@ body { background: #070a10; }
   .telemetry-pill-text { display: none; }
   .telemetry-pill-btn { padding: 6px; }
 }
+
+
+/* ==========================================================================
+   Tactile & Techie Suite: SFX, Architecture Specs, CLI & Telemetry
+   ========================================================================== */
+
+/* Sound FX Toggle Button */
+.sound-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font: 500 10px 'DM Mono', monospace;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sound-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.sound-icon {
+  font-size: 11px;
+}
+
+.sound-text {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Floating Terminal Launcher (Bottom-Right) */
+.floating-terminal-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 90px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  background: rgba(10, 16, 26, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(131, 240, 196, 0.35);
+  border-radius: 999px;
+  color: var(--accent);
+  font: 600 11px 'DM Mono', monospace;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(131, 240, 196, 0.15);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-terminal-btn:hover {
+  background: rgba(14, 22, 35, 0.95);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(131, 240, 196, 0.3);
+  transform: translateY(-2px);
+}
+
+.terminal-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  animation: pulse-live 2s infinite ease-in-out;
+}
+
+.terminal-btn-icon {
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+.terminal-kbd {
+  font-size: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--muted);
+}
+
+/* Hero Telemetry & Metrics Strip */
+.hero-top-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.hero-telemetry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  background: rgba(131, 240, 196, 0.08);
+  border: 1px solid rgba(131, 240, 196, 0.3);
+  border-radius: 999px;
+  color: var(--accent);
+  font: 600 11px 'DM Mono', monospace;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-telemetry-badge:hover {
+  background: rgba(131, 240, 196, 0.16);
+  border-color: var(--accent);
+  transform: translateX(2px);
+}
+
+.badge-arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.hero-telemetry-badge:hover .badge-arrow {
+  transform: translateX(3px);
+}
+
+.hero-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0 28px 0;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.hero-metric-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metric-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.metric-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.hero-terminal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+}
+
+/* Projects Category Filter Bar */
+.project-filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.project-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font: 500 12px 'DM Mono', monospace;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-filter-chip:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--surface-2);
+}
+
+.project-filter-chip.is-active {
+  background: rgba(108, 99, 255, 0.12);
+  border-color: #6c63ff;
+  color: #a5b4fc;
+  box-shadow: 0 0 14px rgba(108, 99, 255, 0.2);
+}
+
+.filter-count {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.project-filter-chip.is-active .filter-count {
+  background: #6c63ff;
+  color: #ffffff;
+}
+
+/* Architecture Spec Button */
+.project-arch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(108, 99, 255, 0.08);
+  border: 1px solid rgba(108, 99, 255, 0.35);
+  border-radius: 6px;
+  color: #a5b4fc;
+  font: 600 11px 'DM Mono', monospace;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-arch-btn:hover {
+  background: rgba(108, 99, 255, 0.2);
+  border-color: #6c63ff;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Architecture Modal Styling */
+.arch-modal-shell {
+  width: min(840px, 95vw);
+  max-height: 90vh;
+  background: #090e17;
+  border: 1px solid rgba(108, 99, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8), 0 0 30px rgba(108, 99, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.arch-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #a5b4fc;
+  background: rgba(108, 99, 255, 0.15);
+  padding: 3px 8px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-bottom: 6px;
+}
+
+.arch-archetype {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+
+.arch-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.arch-metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.arch-metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.arch-metric-card .metric-label {
+  font-size: 9px;
+  font-family: 'DM Mono', monospace;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.arch-metric-card .metric-value {
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.arch-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.arch-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.arch-diagram-box {
+  background: #04070c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  color: #38bdf8;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.arch-decisions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.arch-decision-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.decision-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.decision-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #818cf8;
+  background: rgba(129, 140, 248, 0.12);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.decision-topic {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.decision-body {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.decision-body strong {
+  color: #e2e8f0;
+}
+
+.arch-actions-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.arch-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.arch-action-btn.primary {
+  background: linear-gradient(135deg, #6c63ff, #48cfad);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(108, 99, 255, 0.35);
+}
+
+.arch-action-btn.primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.arch-action-btn.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.arch-action-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Telemetry Diagnostics Ping Button */
+.telemetry-ping-btn {
+  background: rgba(131, 240, 196, 0.1);
+  border: 1px solid rgba(131, 240, 196, 0.3);
+  color: var(--accent);
+  font: 600 10px 'DM Mono', monospace;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.telemetry-ping-btn:hover {
+  background: rgba(131, 240, 196, 0.2);
+  border-color: var(--accent);
+}
+
+.subsystem-badge-up {
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.subsystem-badge-up:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Light Mode Overrides for Techie Suite */
+.site-shell[data-theme="light"] .floating-terminal-btn {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(8, 126, 104, 0.4);
+  color: #087e68;
+  box-shadow: 0 8px 24px rgba(26, 46, 65, 0.15);
+}
+
+.site-shell[data-theme="light"] .sound-toggle-btn {
+  background: rgba(26, 46, 65, 0.05);
+  border-color: rgba(26, 46, 65, 0.15);
+  color: #536576;
+}
+
+.site-shell[data-theme="light"] .sound-toggle-btn:hover {
+  color: #132334;
+  border-color: #087e68;
+}
+
+.site-shell[data-theme="light"] .hero-telemetry-badge {
+  background: rgba(8, 126, 104, 0.08);
+  border-color: rgba(8, 126, 104, 0.3);
+  color: #087e68;
+}
+
+.site-shell[data-theme="light"] .hero-metrics-strip {
+  background: #f8fafc;
+  border-color: rgba(26, 46, 65, 0.1);
+}
+
+.site-shell[data-theme="light"] .metric-num {
+  color: #132334;
+}
+
+.site-shell[data-theme="light"] .project-filter-chip {
+  background: #f8fafc;
+  border-color: rgba(26, 46, 65, 0.12);
+  color: #536576;
+}
+
+.site-shell[data-theme="light"] .project-filter-chip.is-active {
+  background: rgba(108, 99, 255, 0.08);
+  border-color: #6c63ff;
+  color: #4f46e5;
+}
+
+.site-shell[data-theme="light"] .project-arch-btn {
+  background: rgba(108, 99, 255, 0.06);
+  border-color: rgba(108, 99, 255, 0.3);
+  color: #4f46e5;
+}
+
+.site-shell[data-theme="light"] .arch-modal-shell {
+  background: #ffffff;
+  border-color: rgba(108, 99, 255, 0.3);
+}
+
+.site-shell[data-theme="light"] .arch-section-title {
+  color: #132334;
+}
+
+.site-shell[data-theme="light"] .decision-topic {
+  color: #132334;
+}
+
+.site-shell[data-theme="light"] .arch-diagram-box {
+  background: #f1f5f9;
+  color: #0369a1;
+  border-color: rgba(26, 46, 65, 0.1);
+}
+
+/* Mobile Adjustments for Techie Suite */
+@media(max-width: 768px) {
+  .hero-metrics-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .floating-terminal-btn {
+    bottom: 80px;
+    right: 20px;
+    padding: 6px 11px;
+    font-size: 10px;
+  }
+  .terminal-kbd {
+    display: none;
+  }
+  .arch-metrics-bar {
+    grid-template-columns: 1fr;
+  }
+}

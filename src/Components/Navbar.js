@@ -2,6 +2,8 @@ import React from "react";
 import { LanguageContext, withTranslations } from "../i18n";
 import ArrowIcon from "./ArrowIcon";
 import SystemTelemetryModal from "./SystemTelemetryModal";
+import SoundToggle from "./SoundToggle";
+import { playClick } from "../utils/audio";
 
 const links = [
   ["Experience", "#experience"],
@@ -12,11 +14,22 @@ const links = [
   ["About", "#about"],
 ];
 
-function Navbar({ theme, onToggleTheme }) {
+function Navbar({ theme, onToggleTheme, telemetryOpen, setTelemetryOpen }) {
   const { language, setLanguage } = React.useContext(LanguageContext);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState("about");
-  const [telemetryOpen, setTelemetryOpen] = React.useState(false);
+  const [localTelemetry, setLocalTelemetry] = React.useState(false);
+
+  const isTelemetryOpen = telemetryOpen !== undefined ? telemetryOpen : localTelemetry;
+  const handleOpenTelemetry = () => {
+    playClick();
+    if (setTelemetryOpen) setTelemetryOpen(true);
+    else setLocalTelemetry(true);
+  };
+  const handleCloseTelemetry = () => {
+    if (setTelemetryOpen) setTelemetryOpen(false);
+    else setLocalTelemetry(false);
+  };
 
   React.useEffect(() => {
     const sectionIds = links.map(([, href]) => href.slice(1));
@@ -46,7 +59,7 @@ function Navbar({ theme, onToggleTheme }) {
     <>
       <header className="site-header">
         <nav className="nav-wrap" aria-label="Main navigation">
-          <a className="brand" href="#about" aria-label="Pradeep Deivamani home">
+          <a className="brand" href="#about" aria-label="Pradeep Deivamani home" onClick={playClick}>
             <span className="brand-mark">PD</span>
             <span>Pradeep <span className="brand-muted">Deivamani</span></span>
           </a>
@@ -56,54 +69,92 @@ function Navbar({ theme, onToggleTheme }) {
                 key={href}
                 href={href}
                 aria-current={activeSection === href.slice(1) ? "location" : undefined}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  playClick();
+                  setMenuOpen(false);
+                }}
               >
                 {label}
               </a>
             ))}
           </div>
 
+          {/* System Telemetry Live Pill */}
           <button
             className="telemetry-pill-btn"
             type="button"
-            onClick={() => setTelemetryOpen(true)}
+            onClick={handleOpenTelemetry}
             title="System Telemetry & Health (/actuator/health)"
             aria-label="Open System Telemetry and Health"
           >
             <span className="telemetry-live-dot" />
-            <span className="telemetry-pill-text">SYS: UP</span>
+            <span className="telemetry-pill-text">SYS: 6/6 UP</span>
           </button>
 
+          {/* Sound FX Haptics Toggle */}
+          <SoundToggle />
+
+          {/* Theme Toggle */}
           <button
             className="theme-toggle"
             type="button"
-            onClick={onToggleTheme}
+            onClick={() => {
+              playClick();
+              if (onToggleTheme) onToggleTheme();
+            }}
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
             aria-pressed={theme === "light"}
             title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
           >
             <span aria-hidden="true">{theme === "dark" ? "☼" : "☾"}</span>
           </button>
+
           <div className="language-switch" role="group" aria-label="Language">
-            <button type="button" lang="en" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button>
+            <button
+              type="button"
+              lang="en"
+              aria-pressed={language === "en"}
+              onClick={() => {
+                playClick();
+                setLanguage("en");
+              }}
+            >
+              EN
+            </button>
             <span aria-hidden="true" />
-            <button type="button" lang="fr" aria-pressed={language === "fr"} onClick={() => setLanguage("fr")}>FR</button>
+            <button
+              type="button"
+              lang="fr"
+              aria-pressed={language === "fr"}
+              onClick={() => {
+                playClick();
+                setLanguage("fr");
+              }}
+            >
+              FR
+            </button>
           </div>
-          <a className="nav-cta" href="#contact">Let’s talk <ArrowIcon /></a>
+          <a className="nav-cta" href="#contact" onClick={playClick}>Let’s talk <ArrowIcon /></a>
           <button
             className="menu-toggle"
             type="button"
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={menuOpen}
             aria-controls="main-menu"
-            onClick={() => setMenuOpen((open) => !open)}
+            onClick={() => {
+              playClick();
+              setMenuOpen((open) => !open);
+            }}
           >
             <span /><span />
           </button>
         </nav>
       </header>
 
-      <SystemTelemetryModal isOpen={telemetryOpen} onClose={() => setTelemetryOpen(false)} />
+      {/* Render modal if controlled locally */}
+      {telemetryOpen === undefined && (
+        <SystemTelemetryModal isOpen={isTelemetryOpen} onClose={handleCloseTelemetry} />
+      )}
     </>
   );
 }

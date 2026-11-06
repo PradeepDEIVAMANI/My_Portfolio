@@ -11,6 +11,8 @@ import Experience from "./Components/Experience";
 import CaseStudies from "./Components/CaseStudies";
 import Consulting from "./Components/Consulting";
 import PortfolioChatbot from "./Components/PortfolioChatbot";
+import SystemTelemetryModal from "./Components/SystemTelemetryModal";
+import FloatingTerminalButton from "./Components/FloatingTerminalButton";
 import { LanguageContext } from "./i18n";
 import "./App.css";
 
@@ -23,6 +25,7 @@ export default function App() {
     try { return window.localStorage.getItem("portfolio-theme") === "light" ? "light" : "dark"; }
     catch { return "dark"; }
   });
+  const [telemetryOpen, setTelemetryOpen] = React.useState(false);
 
   React.useEffect(() => {
     try { window.localStorage.setItem("portfolio-theme", theme); } catch {}
@@ -63,9 +66,14 @@ export default function App() {
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
       <div className="site-shell" data-theme={theme}>
-        <Navbar theme={theme} onToggleTheme={() => setTheme((current) => current === "dark" ? "light" : "dark")} />
+        <Navbar
+          theme={theme}
+          onToggleTheme={() => setTheme((current) => current === "dark" ? "light" : "dark")}
+          telemetryOpen={telemetryOpen}
+          setTelemetryOpen={setTelemetryOpen}
+        />
         <main>
-          <About />
+          <About onOpenTelemetry={() => setTelemetryOpen(true)} />
           <Experience />
           <CaseStudies />
           <Projects />
@@ -77,6 +85,12 @@ export default function App() {
         </main>
         <Footer />
         <PortfolioChatbot />
+
+        {/* Floating Developer CLI Terminal Launcher (Ctrl+K) */}
+        <FloatingTerminalButton onOpenTerminal={() => setTelemetryOpen(true)} />
+
+        {/* Global System Telemetry & Diagnostic Modal */}
+        <SystemTelemetryModal isOpen={telemetryOpen} onClose={() => setTelemetryOpen(false)} />
       </div>
     </LanguageContext.Provider>
   );
