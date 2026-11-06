@@ -12,7 +12,6 @@ import CaseStudies from "./Components/CaseStudies";
 import Consulting from "./Components/Consulting";
 import PortfolioChatbot from "./Components/PortfolioChatbot";
 import SystemTelemetryModal from "./Components/SystemTelemetryModal";
-import FloatingTerminalButton from "./Components/FloatingTerminalButton";
 import { LanguageContext } from "./i18n";
 import "./App.css";
 
@@ -83,11 +82,8 @@ export default function App() {
           <Consulting />
           <Contact />
         </main>
-        <Footer onOpenTerminal={() => setTelemetryOpen(true)} />
+        <Footer />
         <PortfolioChatbot />
-
-        {/* Floating Developer CLI Terminal Launcher (Ctrl+K) */}
-        <FloatingTerminalButton onOpenTerminal={() => setTelemetryOpen(true)} />
 
         {/* Global System Telemetry & Diagnostic Modal */}
         <SystemTelemetryModal isOpen={telemetryOpen} onClose={() => setTelemetryOpen(false)} />

@@ -1,6 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import ArrowIcon from "./ArrowIcon";
+import { withTranslations } from "../i18n";
 import { playClick, playChime } from "../utils/audio";
 
 const ARCHITECTURES = {
@@ -212,7 +213,7 @@ const ARCHITECTURES = {
   }
 };
 
-export default function ArchitectureModal({ project, isOpen, onClose }) {
+function ArchitectureModal({ project, isOpen, onClose }) {
   React.useEffect(() => {
     if (!isOpen) return;
     playChime();
@@ -328,3 +329,5 @@ export default function ArchitectureModal({ project, isOpen, onClose }) {
     document.body
   );
 }
+
+export default withTranslations(ArchitectureModal);

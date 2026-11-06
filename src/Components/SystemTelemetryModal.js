@@ -1,6 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
 import ArrowIcon from "./ArrowIcon";
+import { withTranslations } from "../i18n";
 import { playClick, playKeypress, playSuccess, playChime } from "../utils/audio";
 
 const initialSubsystems = [
@@ -61,7 +62,7 @@ const cliHelp = `Available terminal commands:
   contact           - Output contact channels and schedule link
   clear             - Clear terminal screen`;
 
-export default function SystemTelemetryModal({ isOpen, onClose }) {
+function SystemTelemetryModal({ isOpen, onClose }) {
   const [activeTab, setActiveTab] = React.useState("actuator");
   const [subsystems, setSubsystems] = React.useState(initialSubsystems);
   const [isPinging, setIsPinging] = React.useState(false);
@@ -326,3 +327,5 @@ export default function SystemTelemetryModal({ isOpen, onClose }) {
     document.body
   );
 }
+
+export default withTranslations(SystemTelemetryModal);
